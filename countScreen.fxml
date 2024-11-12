@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.countScreenControl">
+   <children>
+      <TextField fx:id="penniesField" layoutX="88.0" layoutY="34.0" onKeyTyped="#penny" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="nickelsField" layoutX="88.0" layoutY="79.0" onKeyTyped="#nickel" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="dimesField" layoutX="88.0" layoutY="119.0" onKeyTyped="#dime" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="quartersField" layoutX="88.0" layoutY="161.0" onKeyTyped="#quarter" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="rPenniesField" layoutX="88.0" layoutY="239.0" onKeyTyped="#pennyRoll" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="rNickelsField" layoutX="88.0" layoutY="275.0" onKeyTyped="#nickelRoll" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="rDimesField" layoutX="88.0" layoutY="313.0" onKeyTyped="#dimeRoll" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="rQuartersField" layoutX="88.0" layoutY="350.0" onKeyTyped="#quarterRoll" prefHeight="26.0" prefWidth="91.0" />
+      <Label layoutX="36.0" layoutY="39.0" text="Pennies" />
+      <Label layoutX="36.0" layoutY="84.0" text="Nickels" />
+      <Label layoutX="36.0" layoutY="124.0" text="Dimes" />
+      <Label layoutX="36.0" layoutY="166.0" text="Quaters" />
+      <Label layoutX="36.0" layoutY="243.0" text="Pennies" />
+      <Label layoutX="37.0" layoutY="279.0" text="Nickels" />
+      <Label layoutX="40.0" layoutY="317.0" text="Dimes" />
+      <Label layoutX="36.0" layoutY="354.0" text="Quaters" />
+      <Label layoutX="99.0" layoutY="208.0" text="Change Rolls" />
+      <Label fx:id="lblPennies" layoutX="194.0" layoutY="39.0" text="\$0.00" />
+      <Label fx:id="lblNickels" layoutX="194.0" layoutY="84.0" text="\$0.00" />
+      <Label fx:id="lblDimes" layoutX="194.0" layoutY="124.0" text="\$0.00" />
+      <Label fx:id="lblQuarters" layoutX="194.0" layoutY="166.0" text="\$0.00" />
+      <Label fx:id="lblRPennies" layoutX="194.0" layoutY="243.0" text="\$0.00" />
+      <Label fx:id="lblRNickels" layoutX="194.0" layoutY="279.0" text="\$0.00" />
+      <Label fx:id="lblRDimes" layoutX="194.0" layoutY="317.0" text="\$0.00" />
+      <Label fx:id="lblRQuarters" layoutX="194.0" layoutY="354.0" text="\$0.00" />
+      <Label layoutX="258.0" layoutY="39.0" text="\$1" />
+      <Label layoutX="258.0" layoutY="83.0" text="\$2" />
+      <Label layoutX="258.0" layoutY="123.0" text="\$5" />
+      <Label layoutX="255.0" layoutY="165.0" text="\$10" />
+      <Label layoutX="255.0" layoutY="243.0" text="\$20" />
+      <Label layoutX="255.0" layoutY="279.0" text="\$50" />
+      <Label layoutX="252.0" layoutY="317.0" text="\$100" />
+      <TextField fx:id="dollarField" layoutX="286.0" layoutY="34.0" onKeyTyped="#dollar" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="twoDollarField" layoutX="286.0" layoutY="78.0" onKeyTyped="#twoDollar" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="fiveDollarField" layoutX="287.0" layoutY="118.0" onKeyTyped="#fiveDollar" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="tenDollarField" layoutX="287.0" layoutY="160.0" onKeyTyped="#tenDollar" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="twentyDollarField" layoutX="287.0" layoutY="238.0" onKeyTyped="#twentyDollar" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="fiftyDollarField" layoutX="286.0" layoutY="274.0" onKeyTyped="#fiftyDollar" prefHeight="26.0" prefWidth="91.0" />
+      <TextField fx:id="hundredDollarField" layoutX="286.0" layoutY="312.0" onKeyTyped="#hundredDollar" prefHeight="26.0" prefWidth="91.0" />
+      <Label fx:id="lblDrawer" layoutX="489.0" layoutY="116.0" text="Drawer: $250.00" />
+      <Label fx:id="lblCount" layoutX="489.0" layoutY="157.0" text="Count: $0.00" />
+      <Label fx:id="lblDifference" layoutX="487.0" layoutY="199.0" text="Difference: $0.00" />
+      <Button fx:id="btnFinish" layoutX="466.0" layoutY="359.0" mnemonicParsing="false" onAction="#finish" text="Finish" />
+      <Button fx:id="btnExit" layoutX="538.0" layoutY="359.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
+      <Label fx:id="lblDollar" layoutX="387.0" layoutY="39.0" text="\$0.00" />
+      <Label fx:id="lblTwoDollar" layoutX="387.0" layoutY="82.0" text="\$0.00" />
+      <Label fx:id="lblFiveDollar" layoutX="387.0" layoutY="122.0" text="\$0.00" />
+      <Label fx:id="lblTenDollar" layoutX="387.0" layoutY="166.0" text="\$0.00" />
+      <Label fx:id="lblTwentyDollar" layoutX="387.0" layoutY="242.0" text="\$0.00" />
+      <Label fx:id="lblFiftyDollar" layoutX="387.0" layoutY="278.0" text="\$0.00" />
+      <Label fx:id="lblHundredDollar" layoutX="387.0" layoutY="317.0" text="\$0.00" />
+   </children>
+</AnchorPane>
