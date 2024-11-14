@@ -1,12 +1,6 @@
 CREATE DATABASE pointOfSale;
 USE pointOfSale;
 
-CREATE TABLE Schedule (
-  totalHours  integer,
-  scheduleID  char(9),
-  primary key (scheduleID)
-);
-
 CREATE TABLE Employee (
   ssn  char(9),
   fname  varchar(15) not null,
@@ -14,6 +8,14 @@ CREATE TABLE Employee (
   daysWorked varchar(21),
   mgrssn char(9),
   primary key (ssn)
+);
+
+CREATE TABLE Schedule (
+  totalHours  integer,
+  scheduleID  char(9),
+  ssn char(9),
+  primary key (scheduleID),
+  foreign key (ssn) references Employee(ssn)
 );
 
 CREATE TABLE MenuItem (
@@ -27,9 +29,12 @@ CREATE TABLE MenuItem (
 
 CREATE TABLE CustomerOrder (
   ssn char(9),
+  itemName varchar(40),
   orderNum  integer,
+  orderQuantity integer,
   primary key (orderNum),
-  foreign key (ssn) references Employee(ssn)
+  foreign key (ssn) references Employee(ssn),
+  foreign key (itemName) references MenuItem(itemName)
 );
 
 CREATE TABLE Ingredient (
@@ -46,16 +51,6 @@ CREATE TABLE Ticket (
   foreign key (orderNum) references CustomerOrder (orderNum)
 );
 
-INSERT INTO Schedule VALUES (40, "111112345");
-INSERT INTO Schedule VALUES (40, "111112346");
-INSERT INTO Schedule VALUES (36, "111112347");
-INSERT INTO Schedule VALUES (16, "111112348");
-INSERT INTO Schedule VALUES ( 8, "111112349");
-INSERT INTO Schedule VALUES (24, "111112350");
-INSERT INTO Schedule VALUES (40, "111112351");
-INSERT INTO Schedule VALUES (40, "111112352");
-INSERT INTO Schedule VALUES (32, "111112353");
-INSERT INTO Schedule VALUES (20, "111112354");
 
 INSERT INTO Employee VALUES ("123456789", "Michael",   "Carter", "M, T, W, R, F",        null);
 INSERT INTO Employee VALUES ("112255438", "Kimberly",    "Gray", "M, T, W, R, F",        null);
@@ -88,6 +83,17 @@ INSERT INTO Employee VALUES ("777333444", "Jordan",    "Miller", "M, T, W, R, F"
 INSERT INTO Employee VALUES ("777999000", "Tristan",   "Graham", "M, T, W, R, F", "449620351");
 INSERT INTO Employee VALUES ("777462111", "Taylor",    "Bryant", "M, T, W, R",    "670547720");
 
+INSERT INTO Schedule VALUES (40, "111112345", "987654321");
+INSERT INTO Schedule VALUES (40, "111112346", "888888888");
+INSERT INTO Schedule VALUES (36, "111112347", "283664357");
+INSERT INTO Schedule VALUES (16, "111112348", "888899991");
+INSERT INTO Schedule VALUES ( 8, "111112349", "763333318");
+INSERT INTO Schedule VALUES (24, "111112350", "499622555");
+INSERT INTO Schedule VALUES (40, "111112351", "599431111");
+INSERT INTO Schedule VALUES (40, "111112352", "335336337");
+INSERT INTO Schedule VALUES (32, "111112353", "111111113");
+INSERT INTO Schedule VALUES (20, "111112354", "111111112");
+
 INSERT INTO MenuItem VALUES ("Salad",                     6, "Tomato",                           "Yes",  "No");
 INSERT INTO MenuItem VALUES ("Hamburger",                11, "Wheat, Soy, Yeast, Tomato",         "No",  "No");
 INSERT INTO MenuItem VALUES ("Cheese Pizza",              8, "Dairy, Egg, Wheat, Yeast, Tomato", "Yes",  "No");
@@ -99,16 +105,16 @@ INSERT INTO MenuItem VALUES ("Bean Burrito",              7, "Wheat, Soy, Dairy,
 INSERT INTO MenuItem VALUES ("Spaghetti",                14, "Wheat, Gluten, Dairy, Egg, Tomato", "No",  "No");
 INSERT INTO MenuItem VALUES ("Chicken Tenders",           7, "Wheat, Soy, Egg, Dairy",            "No",  "No");
 
-INSERT INTO CustomerOrder VALUES ("111222333", 101);
-INSERT INTO CustomerOrder VALUES ("111222333", 102);
-INSERT INTO CustomerOrder VALUES ("197355426", 103);
-INSERT INTO CustomerOrder VALUES ("222222222", 104);
-INSERT INTO CustomerOrder VALUES ("772655819", 105);
-INSERT INTO CustomerOrder VALUES ("444444444", 106);
-INSERT INTO CustomerOrder VALUES ("629354882", 107);
-INSERT INTO CustomerOrder VALUES ("111111112", 108);
-INSERT INTO CustomerOrder VALUES ("111111113", 109);
-INSERT INTO CustomerOrder VALUES ("111111113", 110);
+INSERT INTO CustomerOrder VALUES ("111222333", "Salad",                    101, 2);
+INSERT INTO CustomerOrder VALUES ("111222333", "Hamburger",                102, 1);
+INSERT INTO CustomerOrder VALUES ("197355426", "Pepperoni Pizza",          103, 3);
+INSERT INTO CustomerOrder VALUES ("222222222", "Chicken Tenders",          104, 5);
+INSERT INTO CustomerOrder VALUES ("772655819", "Gluten Free Cheese Pizza", 105, 1);
+INSERT INTO CustomerOrder VALUES ("444444444", "Spaghetti",                106, 2);
+INSERT INTO CustomerOrder VALUES ("629354882", "Hamburger",                107, 3);
+INSERT INTO CustomerOrder VALUES ("111111112", "Spaghetti",                108, 1);
+INSERT INTO CustomerOrder VALUES ("111111113", "Pepperoni Pizza",          109, 4);
+INSERT INTO CustomerOrder VALUES ("111111113", "Pepperoni Pizza",          110, 1);
 
 INSERT INTO Ingredient VALUES ("Lettuce",                 200);
 INSERT INTO Ingredient VALUES ("Cucumber",                100);
