@@ -52,6 +52,7 @@ CREATE TABLE Ticket (
 );
 
 
+
 INSERT INTO Employee VALUES ("123456789", "Michael",   "Carter", "M, T, W, R, F",        null);
 INSERT INTO Employee VALUES ("112255438", "Kimberly",    "Gray", "M, T, W, R, F",        null);
 INSERT INTO Employee VALUES ("135797531", "Elizabeth", "Nelson", "M, T, W, R, F",        null);
@@ -115,29 +116,6 @@ INSERT INTO CustomerOrder VALUES ("629354882", "Hamburger",                107, 
 INSERT INTO CustomerOrder VALUES ("111111112", "Spaghetti",                108, 1);
 INSERT INTO CustomerOrder VALUES ("111111113", "Pepperoni Pizza",          109, 4);
 INSERT INTO CustomerOrder VALUES ("111111113", "Pepperoni Pizza",          110, 1);
-
-INSERT INTO Ingredient VALUES ("Lettuce",                 200);
-INSERT INTO Ingredient VALUES ("Cucumber",                100);
-INSERT INTO Ingredient VALUES ("Carrot",                  100);
-INSERT INTO Ingredient VALUES ("Tomato",                  200);
-INSERT INTO Ingredient VALUES ("Ground Beef",             400);
-INSERT INTO Ingredient VALUES ("Hamburger Bun",           300);
-INSERT INTO Ingredient VALUES ("Onion",                   500);
-INSERT INTO Ingredient VALUES ("Wheat Pizza Dough",       500);
-INSERT INTO Ingredient VALUES ("Cheese",                  400);
-INSERT INTO Ingredient VALUES ("Vegan Cheese",            300);
-INSERT INTO Ingredient VALUES ("Tomato Sauce",            600);
-INSERT INTO Ingredient VALUES ("Pepperoni",               200);
-INSERT INTO Ingredient VALUES ("Sausage",                  75);
-INSERT INTO Ingredient VALUES ("Gluten Free Pizza Dough", 200);
-INSERT INTO Ingredient VALUES ("Steak",                   400);
-INSERT INTO Ingredient VALUES ("Rice",                    150);
-INSERT INTO Ingredient VALUES ("Cilantro",                100);
-INSERT INTO Ingredient VALUES ("Corn Tortilla",           300);
-INSERT INTO Ingredient VALUES ("Garlic",                  400);
-INSERT INTO Ingredient VALUES ("Pasta",                   300);
-INSERT INTO Ingredient VALUES ("Chicken Tenderloin",      600);
-INSERT INTO Ingredient VALUES ("Batter",                  600);
 
 INSERT INTO Ticket VALUES ( 1, "2024-11-1", 101);
 INSERT INTO Ticket VALUES ( 2, "2024-11-1", 102);
