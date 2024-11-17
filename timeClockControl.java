@@ -47,7 +47,7 @@ public class timeClockControl {
         ObservableList<String> employeeNames = FXCollections.observableArrayList();
 
         try (Connection connection = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD)) {
-            String query = "SELECT CONCAT(fname, ', ', lname) AS employee_name FROM Employee;"; 
+            String query = "SELECT CONCAT(lname, ', ', fname) AS employee_name FROM Employee;"; 
             try (Statement stmt = connection.createStatement();
                  ResultSet rs = stmt.executeQuery(query)) {
 
