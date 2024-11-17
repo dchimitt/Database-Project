@@ -7,25 +7,25 @@ public class modifyScreenControl {
 
 	// FXML Object Linking
 	
-	// Row 1 Buttons
+	// Row 0 Buttons
     @FXML private Button btn0_1;
     @FXML private Button btn0_2;
     @FXML private Button btn0_3;
     @FXML private Button btn0_4;
     
-    // Row 2 Buttons
+    // Row 1 Buttons
     @FXML private Button btn1_1;
     @FXML private Button btn1_2;
     @FXML private Button btn1_3;
     @FXML private Button btn1_4;
     
-    // Row 3 Buttons
+    // Row 2 Buttons
     @FXML private Button btn2_1;
     @FXML private Button btn2_2;
     @FXML private Button btn2_3;
     @FXML private Button btn2_4;
     
-    // Row 4 Buttons
+    // Row 3 Buttons
     @FXML private Button btn3_1;
     @FXML private Button btn3_2;
     @FXML private Button btn3_3;
