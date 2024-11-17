@@ -11,21 +11,21 @@ public class drawerManagerControl {
 	//FXML Object Linking
 	
 	// Buttons
-	@FXML private Button assignButton;
-    @FXML private Button countButton;
-    @FXML private Button closeButton;
+	@FXML private Button btnAssign;
+    @FXML private Button btnCount;
+    @FXML private Button btnClose;
 	
     // Labels
-    @FXML private Label assignEmployeeLabel;
-    @FXML private Label assignDrawerLabel;
-    @FXML private Label drawerCountLabel;
+    @FXML private Label lblAssignEmployee;
+    @FXML private Label lblAssignDrawer;
+    @FXML private Label lblDrawerCount;
     
     // TextFields
-    @FXML private TextField drawerCountTextField;
+    @FXML private TextField drawerCountField;
     
     // ComboBoxes
-    @FXML private ComboBox<String> employeeComboBox;
-    @FXML private ComboBox<String> drawerComboBox;
+    @FXML private ComboBox<String> assignEmployeeComboBox;
+    @FXML private ComboBox<String> assignDrawerComboBox;
 
 
     private void handleAssignButtonClick() {
