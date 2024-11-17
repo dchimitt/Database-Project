@@ -27,11 +27,13 @@ public class timeClockControl {
     // ChoiceBox
     @FXML private ChoiceBox<String> choiceBox; // rename as needed, unsure of function at the moment
 
+    @FXML
     // Handle the action when the Punch button is clicked
     private void handlePunchButtonAction() {
     	
     }
 
+    @FXML
     private void handleExitButtonAction() {
         System.exit(0);
     }
