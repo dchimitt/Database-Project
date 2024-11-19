@@ -34,11 +34,13 @@ public class modifyScreenControl {
     // Close Button
     @FXML private Button btnClose;
 
-    private void handleGenericButtonClick() {
+    @FXML
+    private void handleGenericButtonAction() {
         // Do we want 16 methods here, or just choose with conditionals based on button .getText()? Probably the latter.
     }
 
-    private void handleCloseButtonClick() {
+    @FXML
+    private void handleCloseButtonAction() {
     	// Logic to handle action when the Close button is clicked
     }
 }
