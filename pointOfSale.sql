@@ -5,15 +5,25 @@ CREATE TABLE Employee (
   ssn  char(9),
   fname  varchar(15) not null,
   lname varchar(15) not null,
-  daysWorked varchar(21),
+  daysWorked varchar(13), -- Days an employee can work
   mgrssn char(9),
-  primary key (ssn)
+  primary key (ssn),
+  foreign key (mgrssn) references Employee(ssn)
 );
 
 CREATE TABLE Schedule (
-  totalHours  integer,
+  totalHours  integer,     -- The total number of hours an employee is scheduled to work in a week
   scheduleID  char(9),
   ssn char(9),
+  daysWorking varchar(13), -- Days an employee is scheduled to work during a particular week
+  
+  /* The specific times during the given week that the employee is scheduled to start their work day */
+  monTimeWorking time,
+  tuesTimeWorking time,
+  wedTimeWorking time,
+  thursTimeWorking time,
+  friTimeWorking time,
+
   primary key (scheduleID),
   foreign key (ssn) references Employee(ssn)
 );
@@ -34,21 +44,33 @@ CREATE TABLE CustomerOrder (
   orderQuantity integer,
   primary key (orderNum),
   foreign key (ssn) references Employee(ssn),
-  foreign key (itemName) references MenuItem(itemName)
-);
-
-CREATE TABLE Ingredient (
-  ingredientName  varchar(25),
-  numberInInventory  integer,
-  primary key (ingredientName)
+  foreign key (itemName) references MenuItem(itemName) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Ticket (
   ticketNum integer,
-  date date,
+  ticketDate date,
   orderNum integer,
   primary key (ticketNum, orderNum),
-  foreign key (orderNum) references CustomerOrder (orderNum)
+  foreign key (orderNum) references CustomerOrder (orderNum) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Inventory (
+  ingredientName varchar(25),
+  ingredientQuantity integer,  -- Total amount of the ingredient available
+  menuItemUsedIn varchar(100), -- The name of the menu item(s) that use the ingredient
+  orderingManager char(9),
+  primary key (ingredientName),
+  foreign key (orderingManager) references Employee(ssn)
+);
+
+CREATE TABLE MenuIngredientUsage (
+  menuItemName varchar(40),            -- Name of the menu item
+  inventoryIngredientName varchar(25), -- Name of the ingredient
+  ingredientAmntUsed integer,          -- The amount of the ingredient that has to be used to create the menu item
+  primary key (menuItemName, inventoryIngredientName),
+  foreign key (menuItemName) references MenuItem(itemName) ON DELETE CASCADE ON UPDATE CASCADE,
+  foreign key (inventoryIngredientName) references Inventory(ingredientName) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -84,16 +106,16 @@ INSERT INTO Employee VALUES ("777333444", "Jordan",    "Miller", "M, T, W, R, F"
 INSERT INTO Employee VALUES ("777999000", "Tristan",   "Graham", "M, T, W, R, F", "449620351");
 INSERT INTO Employee VALUES ("777462111", "Taylor",    "Bryant", "M, T, W, R",    "670547720");
 
-INSERT INTO Schedule VALUES (40, "111112345", "987654321");
-INSERT INTO Schedule VALUES (40, "111112346", "888888888");
-INSERT INTO Schedule VALUES (36, "111112347", "283664357");
-INSERT INTO Schedule VALUES (16, "111112348", "888899991");
-INSERT INTO Schedule VALUES ( 8, "111112349", "763333318");
-INSERT INTO Schedule VALUES (24, "111112350", "499622555");
-INSERT INTO Schedule VALUES (40, "111112351", "599431111");
-INSERT INTO Schedule VALUES (40, "111112352", "335336337");
-INSERT INTO Schedule VALUES (32, "111112353", "111111113");
-INSERT INTO Schedule VALUES (20, "111112354", "111111112");
+INSERT INTO Schedule VALUES (40, "111112345", "987654321", "M, T, W, R, F", "08:00", "08:00", "08:00", "08:00", "08:00");
+INSERT INTO Schedule VALUES (40, "111112346", "888888888", "M, T, W, R, F", "08:00", "08:00", "08:00", "08:00", "08:00");
+INSERT INTO Schedule VALUES (36, "111112347", "283664357", "M, T, W, R",    "12:00", "09:00", "09:00", "09:00",    null);
+INSERT INTO Schedule VALUES (16, "111112348", "888899991", "M, W, R, F",    "09:00",    null, "11:00", "09:00", "11:00");
+INSERT INTO Schedule VALUES ( 8, "111112349", "763333318", "R, F",             null,    null,    null, "14:00", "14:00");
+INSERT INTO Schedule VALUES (24, "111112350", "499622555", "T, W, R",          null, "10:00", "12:00", "10:00",    null);
+INSERT INTO Schedule VALUES (40, "111112351", "599431111", "M, R, F",       "14:00",    null,    null, "10:00", "07:00");
+INSERT INTO Schedule VALUES (40, "111112352", "335336337", "T, W",             null, "10:00", "09:00",    null,    null);
+INSERT INTO Schedule VALUES (32, "111112353", "111111113", "M, T, W, R, F", "10:00", "07:00", "10:00", "07:00", "09:00");
+INSERT INTO Schedule VALUES (20, "111112354", "111111112", "M, T, W, R, F", "07:00", "10:00", "07:00", "10:00", "09:00");
 
 INSERT INTO MenuItem VALUES ("Salad",                     6, "Tomato",                           "Yes",  "No");
 INSERT INTO MenuItem VALUES ("Hamburger",                11, "Wheat, Soy, Yeast, Tomato",         "No",  "No");
@@ -127,3 +149,92 @@ INSERT INTO Ticket VALUES ( 7, "2024-11-3", 107);
 INSERT INTO Ticket VALUES ( 8, "2024-11-3", 108);
 INSERT INTO Ticket VALUES ( 9, "2024-11-3", 109);
 INSERT INTO Ticket VALUES (10, "2024-11-3", 110);
+
+INSERT INTO Inventory VALUES ("Lettuce",                 200, "Salad, Hamburger",                                                                  "555555555");
+INSERT INTO Inventory VALUES ("Cucumber",                100, "Salad",                                                                             "555555555");
+INSERT INTO Inventory VALUES ("Carrot",                  100, "Salad",                                                                             "555555555");
+INSERT INTO Inventory VALUES ("Tomato",                  200, "Salad, Hamburger",                                                                  "555555555");
+INSERT INTO Inventory VALUES ("Ground Beef",             400, "Hamburger",                                                                         "449620351");
+INSERT INTO Inventory VALUES ("Hamburger Bun",           300, "Hamburger",                                                                         "112255438");
+INSERT INTO Inventory VALUES ("Onion",                   500, "Hamburger",                                                                         "832556974");
+INSERT INTO Inventory VALUES ("Pizza Dough",             500, "Cheese Pizza, Pepperoni Pizza, Sausage Pizza",                                      "112255438");
+INSERT INTO Inventory VALUES ("Cheese",                  400, "Cheese Pizza, Pepperoni Pizza, Sausage Pizza",                                      "670547720");
+INSERT INTO Inventory VALUES ("Vegan Cheese",            300, "Gluten Free Cheese Pizza",                                                          "670547720");
+INSERT INTO Inventory VALUES ("Tomato Sauce",            600, "Cheese Pizza, Pepperoni Pizza, Sausage Pizza, Gluten Free Cheese Pizza, Spaghetti", "926374289");
+INSERT INTO Inventory VALUES ("Pepperoni",               200, "Pepperoni Pizza",                                                                   "449620351");
+INSERT INTO Inventory VALUES ("Sausage",                  75, "Sausage Pizza",                                                                     "449620351");
+INSERT INTO Inventory VALUES ("Gluten Free Pizza Dough", 200, "Gluten Free Cheese Pizza",                                                          "112255438");
+INSERT INTO Inventory VALUES ("Steak",                   400, "Steak",                                                                             "449620351");
+INSERT INTO Inventory VALUES ("Garlic",                  400, "Steak",                                                                             "832556974");
+INSERT INTO Inventory VALUES ("Rice",                    150, "Bean Burrito",                                                                      "926374289");
+INSERT INTO Inventory VALUES ("Cilantro",                100, "Bean Burrito",                                                                      "832556974");
+INSERT INTO Inventory VALUES ("Corn Tortilla",           300, "Bean Burrito",                                                                      "112255438");
+INSERT INTO Inventory VALUES ("Pasta",                   300, "Spaghetti",                                                                         "135797531");
+INSERT INTO Inventory VALUES ("Chicken Tenderloin",      600, "Chicken Tenders",                                                                   "449620351");
+INSERT INTO Inventory VALUES ("Batter",                  600, "Chicken Tenders",                                                                   "112255438");
+
+INSERT INTO MenuIngredientUsage VALUES ("Salad",                                    "Lettuce", 4);
+INSERT INTO MenuIngredientUsage VALUES ("Salad",                                   "Cucumber", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Salad",                                     "Carrot", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Salad",                                     "Tomato", 2);
+INSERT INTO MenuIngredientUsage VALUES ("Hamburger",                                "Lettuce", 2);
+INSERT INTO MenuIngredientUsage VALUES ("Hamburger",                                 "Tomato", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Hamburger",                            "Ground Beef", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Hamburger",                          "Hamburger Bun", 2);
+INSERT INTO MenuIngredientUsage VALUES ("Hamburger",                                  "Onion", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Cheese Pizza",                         "Pizza Dough", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Cheese Pizza",                              "Cheese", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Cheese Pizza",                        "Tomato Sauce", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Pepperoni Pizza",                      "Pizza Dough", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Pepperoni Pizza",                           "Cheese", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Pepperoni Pizza",                     "Tomato Sauce", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Pepperoni Pizza",                        "Pepperoni", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Sausage Pizza",                        "Pizza Dough", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Sausage Pizza",                             "Cheese", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Sausage Pizza",                       "Tomato Sauce", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Sausage Pizza",                            "Sausage", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Gluten Free Cheese Pizza",            "Vegan Cheese", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Gluten Free Cheese Pizza",            "Tomato Sauce", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Gluten Free Cheese Pizza", "Gluten Free Pizza Dough", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Steak",                                      "Steak", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Steak",                                     "Garlic", 2);
+INSERT INTO MenuIngredientUsage VALUES ("Bean Burrito",                                "Rice", 2);
+INSERT INTO MenuIngredientUsage VALUES ("Bean Burrito",                            "Cilantro", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Bean Burrito",                       "Corn Tortilla", 2);
+INSERT INTO MenuIngredientUsage VALUES ("Spaghetti",                           "Tomato Sauce", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Spaghetti",                                  "Pasta", 4);
+INSERT INTO MenuIngredientUsage VALUES ("Chicken Tenders",               "Chicken Tenderloin", 3);
+INSERT INTO MenuIngredientUsage VALUES ("Chicken Tenders",                           "Batter", 3);
+
+
+
+-- remove an employee (generic)
+	-- might have to do something specific for managers since employees have one and you'd be deleting it
+		/* do we have an idea of how we want to go about replacing a manager if a manager is deleted? the employees under their 
+        supervision would need a new manager or else they effectively act as their own manager in the database */
+-- add an employee (generic)
+	-- same concept here but reverse: do we have an idea of how we want to go about assigning a manager
+
+
+
+/* MenuItem Add/Remove */
+	-- INSERT INTO MenuItem VALUES ([varchar of food name], [int of price], [varchar of allergy components (egg, dairy, etc.), separated by commas and spaces], ["Yes"/"No" on whether vegetarian],  ["Yes"/"No" on whether gluten free]);
+		-- ex: INSERT INTO MenuItem VALUES ("Salad", 6, "Tomato", "Yes", "No");
+    -- DELETE FROM MenuItem WHERE itemName = [food name that it was inserted with];
+		-- ex: DELETE FROM MenuItem WHERE itemName = "Salad";
+			-- NOTE: MenuItem is referenced in many places. By deleting it, you also have to keep in mind that Ticket, CustomerOrder, and MenuIngredientUsage are all affected (all currently set to delete/update depending on what action was taken)
+
+/* Ingredients Add/Remove */
+	-- INSERT INTO Inventory VALUES ([varchar of ingredient name], quantity, [varchar of menu items ingredient is in, separated by a commas and spaces], [ssn of manager who is in charge of ingredient stock]);
+		-- INSERT INTO Inventory VALUES ("Lettuce", 200, "Salad, Hamburger", "555555555");
+    -- DELETE FROM Inventory WHERE ingredientName = [ingredient name that it was inserted with];
+		-- ex: DELETE FROM Inventory WHERE ingredientName = "Lettuce";
+			-- NOTE: This impacts MenuIngredientUsage (currently set to delete/update depending on what action was taken)
+
+/* Update Ingredient Quantities */
+	-- UPDATE Inventory SET ingredientQuantity = ingredientQuantity + [int amount you want the quanity to be] WHERE ingredientName = [ingredient name that you want to update];
+		-- ex: UPDATE Inventory SET ingredientQuantity = ingredientQuantity + 1 WHERE ingredientName = "Lettuce";
+			-- This is the same for both adding/removing
+	-- UPDATE Inventory SET ingredientQuantity = ingredientQuantity - (SELECT ingredientAmntUsed FROM MenuIngredientUsage WHERE inventoryIngredientName = "Lettuce" and menuItemName = [food name] LIMIT 1) WHERE ingredientName = [ingredient name];
+        -- ex: UPDATE Inventory SET ingredientQuantity = ingredientQuantity - (SELECT ingredientAmntUsed FROM MenuIngredientUsage WHERE inventoryIngredientName = "Lettuce" and menuItemName = "Hamburger" LIMIT 1) WHERE ingredientName = "Lettuce";
+			-- this is for removing based on using the ingredient in a menu item. don't ask me how this works, it just does. and yes, the inventoryIngredientName needs to be in both places (inside becuase it'll use wrong value otherwise, outside because it gives error about safe mode modifying)
