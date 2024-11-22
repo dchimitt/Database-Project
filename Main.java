@@ -17,18 +17,22 @@ public class Main extends Application {
 		try {
 			AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
 			AnchorPane countScreen = FXMLLoader.load(getClass().getResource("countScreen.fxml"));
+			AnchorPane databaseSelectScreen = FXMLLoader.load(getClass().getResource("databaseSelectScreen.fxml"));
+			AnchorPane deleteEmployeeScreen = FXMLLoader.load(getClass().getResource("deleteEmployeeScreen.fxml"));
 			AnchorPane drawerManager = FXMLLoader.load(getClass().getResource("drawerManager.fxml"));
 			AnchorPane editPOSScreen = FXMLLoader.load(getClass().getResource("editPOSScreen.fxml"));
+			AnchorPane employeeAddScreen = FXMLLoader.load(getClass().getResource("employeeAddScreen.fxml"));
 			AnchorPane inventoryScreen = FXMLLoader.load(getClass().getResource("inventoryScreen.fxml"));
 			AnchorPane loginScreen = FXMLLoader.load(getClass().getResource("loginScreen.fxml"));
 			AnchorPane modifyScreen = FXMLLoader.load(getClass().getResource("modifyScreen.fxml"));
 			AnchorPane noteScreen = FXMLLoader.load(getClass().getResource("noteScreen.fxml"));
 			AnchorPane openingScreen = FXMLLoader.load(getClass().getResource("openingScreen.fxml"));
 			AnchorPane recallTicketScreen = FXMLLoader.load(getClass().getResource("recallTicketScreen.fxml"));
+			AnchorPane scheduleBuilder = FXMLLoader.load(getClass().getResource("scheduleBuilder.fxml"));
 			AnchorPane tenderScreen = FXMLLoader.load(getClass().getResource("tenderScreen.fxml"));
 			AnchorPane timeClockUI = FXMLLoader.load(getClass().getResource("timeClockUI.fxml"));
 			BorderPane userInterface = (BorderPane)FXMLLoader.load(getClass().getResource("userInterface.fxml"));
-			Scene scene = new Scene(timeClockUI, 600, 400);
+			Scene scene = new Scene(scheduleBuilder, 600, 400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("POS System v1.0");
