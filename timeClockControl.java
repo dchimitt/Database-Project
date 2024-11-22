@@ -3,19 +3,22 @@ package application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 import java.sql.*;
 
 public class timeClockControl {
 
-	//FXML Object Linking
-	
     // Buttons
     @FXML private Button btnPunch;
-    @FXML private Button btnExit;
+    @FXML private Button btnClose;
     
     // Labels
     @FXML private Label lblTimeIn;
@@ -73,10 +76,8 @@ public class timeClockControl {
     		return;
     	}
     	
-    	// Do we want to limit the number of clock in/out's per day to one? 
-    	// If not, how should we handle user accidentally clocking out prior to shift end, if at all?
-    	// Also currently does not properly handle cases where user switches name in dropdown list and hits punch again (will just clock out) since there is no
-    	//      Employee class with a clockedIn variable to track each individually. May want to consider adding one depending on time constraints.
+    	// Currently does not save clock in time after swapping scenes
+    	// Also, does not handle cases where user punches in and then swaps to new employee in dropdown
     	if (!isClockedIn) {
     		// Employee clocks in
     		currentHours = java.time.LocalTime.now().getHour();
@@ -103,8 +104,17 @@ public class timeClockControl {
     }
 
     @FXML
-    private void handleExitButtonAction() {
-        // Assuming this button will not exit the application but transition scenes. Which scene will it go to?
+    private void handleCloseButtonAction() {
+    	try {
+            AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
+            
+            Scene newScene = new Scene(backOfficeUI);
+            Stage stage = (Stage) btnClose.getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 

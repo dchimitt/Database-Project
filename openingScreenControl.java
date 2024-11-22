@@ -1,21 +1,22 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class openingScreenControl {
 
-    // FXML Object Linking
-
     // Buttons
+	// NOTE: Removed toolbar with redundant buttons and made scene transition to backOfficeUI when hitting Start Day button
 	@FXML private Button btnCount;
     @FXML private Button btnStartDay;
-    @FXML private Button btnExit;
-    @FXML private Button btnTimeClock;
-    @FXML private Button btnBackOffice;
+    @FXML private Button btnExitPOS;
     
     // Labels
     @FXML private Label lblWelcome;
@@ -30,16 +31,6 @@ public class openingScreenControl {
     
     // ChoiceBox
     @FXML private ChoiceBox<String> drawerChoiceBox;
-
-    @FXML
-    private void handleTimeClockButtonAction() {
-    	// Logic to handle action when the Time Clock button is clicked
-    }
-
-    @FXML
-    private void handleBackOfficeButtonAction() {
-    	// Logic to handle action when the Back Office button is clicked
-    }
     
     @FXML
     private void handleCountButtonAction() {
@@ -48,12 +39,20 @@ public class openingScreenControl {
 
     @FXML
     private void handleStartDayButtonAction() {
-    	// Logic to handle action when the Start Day button is clicked
+    	try {
+            AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
+            
+            Scene newScene = new Scene(backOfficeUI);
+            Stage stage = (Stage) btnStartDay.getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     @FXML
     private void handleExitButtonAction() {
-    	// Exit the GUI application
         System.exit(0);  
     }
 }

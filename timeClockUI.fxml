@@ -9,18 +9,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.timeClockControl">
    <children>
-   	  <!-- Punch Button -->
-      <Button fx:id="btnPunch" layoutX="176.0" layoutY="240.0" mnemonicParsing="false" onAction="#handlePunchButtonAction" text="Punch" />
-      
-      <!-- Exit Button -->
-      <Button fx:id="btnExit" layoutX="334.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleExitButtonAction" text="Exit" />
-      
-      <!-- Password Field for employee's pin # -->
+      <Button fx:id="btnPunch" layoutX="176.0" layoutY="240.0" mnemonicParsing="false" text="Punch" onAction="#handlePunchButtonAction"/>
+      <Button fx:id="btnClose" layoutX="334.0" layoutY="361.0" mnemonicParsing="false" text="Exit" onAction="#handleCloseButtonAction"/>
       <PasswordField fx:id="employeePinField" layoutX="126.0" layoutY="187.0" promptText="Enter PIN" />
-      
-      <!-- ChoiceBox for list of employees -->
-      <ChoiceBox fx:id="employeeListChoiceBox" layoutX="125.0" layoutY="137.0" prefWidth="150.0" />
-      
+      <ChoiceBox fx:id="employeeListChoiceBox" layoutX="125.0" layoutY="137.0" prefWidth="150.0" />    
       <Label layoutX="145.0" layoutY="72.0" text="Time Clock">
          <font>
             <Font size="23.0" />

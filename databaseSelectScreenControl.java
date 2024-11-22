@@ -1,11 +1,13 @@
 package application; 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class databaseSelectScreenControl { 
-	
-	// FXML Object Linking
 
 	// Buttons
     @FXML private Button btnEmployeeOnboard;
@@ -14,22 +16,49 @@ public class databaseSelectScreenControl {
     @FXML private Button btnClose;
 
     @FXML
-    private void handleOnboardButtonAction() {
-    	// Logic to handle action when the Employee Onboard button is clicked
+    private void handleEmployeeOnboardButtonAction() {
+    	try {
+            AnchorPane employeeAddScreen = FXMLLoader.load(getClass().getResource("employeeAddScreen.fxml"));
+            
+            Scene newScene = new Scene(employeeAddScreen);
+            Stage stage = (Stage) btnEmployeeOnboard.getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }   
     }
 
     @FXML
-    private void handleDeleteButtonAction() {
-    	// Logic to handle action when the Employee Deletion button is clicked
+    private void handleEmployeeDeletionButtonAction() {
+    	try {
+            AnchorPane deleteEmployeeScreen = FXMLLoader.load(getClass().getResource("deleteEmployeeScreen.fxml"));
+            
+            Scene newScene = new Scene(deleteEmployeeScreen);
+            Stage stage = (Stage) btnEmployeeDeletion.getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }   
     }
 
     @FXML
-    private void handleUpdateButtonAction() {
-    	// Logic to handle action when the Update Employee button is clicked
+    private void handleUpdateEmployeeButtonAction() {
+    	// Unsure on this transition
     }
 
     @FXML
     private void handleCloseButtonAction() {
-    	// Logic to handle action when the Close button is clicked      
+    	try {
+            AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
+            
+            Scene newScene = new Scene(backOfficeUI);
+            Stage stage = (Stage) btnClose.getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }   
     }
 }

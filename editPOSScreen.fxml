@@ -11,12 +11,12 @@
    <children>
       <ComboBox layoutX="85.0" layoutY="168.0" prefWidth="150.0" />
       <ComboBox layoutX="359.0" layoutY="168.0" prefWidth="150.0" />
-      <Button layoutX="408.0" layoutY="209.0" mnemonicParsing="false" text="Assign" />
-      <Button layoutX="131.0" layoutY="209.0" mnemonicParsing="false" text="Assign" />
+      <Button fx:id="btnAssignLeft" layoutX="408.0" layoutY="209.0" mnemonicParsing="false" text="Assign" onAction="#handleAssignLeftButtonAction"/>
+      <Button fx:id="btnAssignRight" layoutX="131.0" layoutY="209.0" mnemonicParsing="false" text="Assign" onAction="#handleAssignRightButtonAction"/>
       <TextField layoutX="86.0" layoutY="93.0" />
       <TextField layoutX="359.0" layoutY="93.0" />
-      <Button layoutX="131.0" layoutY="416.0" mnemonicParsing="false" text="Move" />
-      <Button layoutX="527.0" layoutY="452.0" mnemonicParsing="false" text="Close" />
+      <Button fx:id="btnMoveLeft" layoutX="131.0" layoutY="416.0" mnemonicParsing="false" text="Move" onAction="#handleMoveLeftButtonAction"/>
+      <Button fx:id="btnClose" layoutX="527.0" layoutY="452.0" mnemonicParsing="false" text="Close" onAction="#handleCloseButtonAction"/>
       <Label layoutX="113.0" layoutY="54.0" text="Add an Ingredient" />
       <Label layoutX="115.0" layoutY="137.0" text="Assign a Button" />
       <Label layoutX="386.0" layoutY="54.0" text="Add a Menu Iitem" />
@@ -29,6 +29,6 @@
       <ComboBox layoutX="359.0" layoutY="368.0" prefWidth="150.0" />
       <Label layoutX="383.0" layoutY="273.0" text="Select a Menu Item" />
       <Label layoutX="390.0" layoutY="343.0" text="Assign to Button" />
-      <Button layoutX="410.0" layoutY="416.0" mnemonicParsing="false" text="Move" />
+      <Button fx:id="btnMoveRight" layoutX="410.0" layoutY="416.0" mnemonicParsing="false" text="Move" onAction="#handleMoveRightButtonAction"/>
    </children>
 </AnchorPane>

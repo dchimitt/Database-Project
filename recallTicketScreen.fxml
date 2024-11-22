@@ -9,11 +9,11 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.recallTicketScreenControl">
    <children>
       <Label layoutX="21.0" layoutY="28.0" text="Ticket Number" />
-      <Button layoutX="108.0" layoutY="85.0" mnemonicParsing="false" text="Recall" />
+      <Button fx:id="btnRecall" layoutX="108.0" layoutY="85.0" mnemonicParsing="false" text="Recall" onAction="#handleRecallButtonAction" />
       <TextField layoutX="108.0" layoutY="24.0" />
       <TextArea layoutX="314.0" layoutY="24.0" prefHeight="512.0" prefWidth="288.0" />
-      <Button layoutX="620.0" layoutY="561.0" mnemonicParsing="false" text="Close" />
-      <Button layoutX="386.0" layoutY="561.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="484.0" layoutY="561.0" mnemonicParsing="false" text="Void" />
+      <Button fx:id="btnClose" layoutX="620.0" layoutY="561.0" mnemonicParsing="false" text="Close" onAction="#handleCloseButtonAction"/>
+      <Button fx:id="btnEdit" layoutX="386.0" layoutY="561.0" mnemonicParsing="false" text="Edit" onAction="#handleEditButtonAction"/>
+      <Button fx:id="btnVoid" layoutX="484.0" layoutY="561.0" mnemonicParsing="false" text="Void" onAction="#handleVoidButtonAction"/>
    </children>
 </AnchorPane>

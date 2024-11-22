@@ -13,8 +13,8 @@
       <TextField layoutX="211.0" layoutY="59.0" />
       <TextField layoutX="31.0" layoutY="123.0" />
       <ChoiceBox layoutX="128.0" layoutY="200.0" prefWidth="150.0" />
-      <Button layoutX="172.0" layoutY="278.0" mnemonicParsing="false" text="Submit" />
-      <Button layoutX="310.0" layoutY="352.0" mnemonicParsing="false" text="Close" />
+      <Button fx:id="btnSubmit" layoutX="172.0" layoutY="278.0" mnemonicParsing="false" text="Submit" onAction="#handleSubmitButtonAction"/>
+      <Button fx:id="btnClose" layoutX="310.0" layoutY="352.0" mnemonicParsing="false" text="Close" onAction="#handleCloseButtonAction"/>
       <Label layoutX="77.0" layoutY="35.0" text="First Name" />
       <Label layoutX="258.0" layoutY="35.0" text="Last Name" />
       <Label layoutX="93.0" layoutY="103.0" text="SSN" />
