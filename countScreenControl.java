@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane; 
 
 public class countScreenControl {
 
@@ -283,12 +280,16 @@ public class countScreenControl {
 	@FXML
 	private void handleCloseButtonAction() {
 		try {
-            AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
-            
-            Scene inventoryScene = new Scene(backOfficeUI);
-            Stage stage = (Stage) btnClose.getScene().getWindow();
-            stage.setScene(inventoryScene);
-            stage.show();
+			if (openingScreenControl.dayStarted == false) {
+				Stage stage = (Stage) btnClose.getScene().getWindow();
+				stage.setScene(Main.openingScreenScene);
+				stage.show();
+			}
+			else {
+				Stage stage = (Stage) btnClose.getScene().getWindow();
+				stage.setScene(Main.backOfficeUIScene);
+				stage.show();
+			}
         } catch (Exception e) {
             e.printStackTrace();
         }

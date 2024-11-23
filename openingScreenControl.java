@@ -1,16 +1,15 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class openingScreenControl {
+	
+	public static boolean dayStarted;
 
     // Buttons
 	// NOTE: Removed toolbar with redundant buttons and made scene transition to backOfficeUI when hitting Start Day button
@@ -34,18 +33,18 @@ public class openingScreenControl {
     
     @FXML
     private void handleCountButtonAction() {
-    	// Logic to handle action when the Count button is clicked
+    	Stage stage = (Stage) btnCount.getScene().getWindow();
+        stage.setScene(Main.countScreenScene);
+        stage.show();
     }
 
     @FXML
     private void handleStartDayButtonAction() {
     	try {
-            AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
-            
-            Scene newScene = new Scene(backOfficeUI);
             Stage stage = (Stage) btnStartDay.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.backOfficeUIScene);
             stage.show();
+            dayStarted = true;
         } catch (Exception e) {
             e.printStackTrace();
         }

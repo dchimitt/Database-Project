@@ -1,11 +1,7 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class backOfficeControl {	
@@ -29,11 +25,8 @@ public class backOfficeControl {
 	@FXML
 	private void handleRecallTicketsButtonAction() {
 		try {
-            AnchorPane recallTicketScreen = FXMLLoader.load(getClass().getResource("recallTicketScreen.fxml"));
-            
-            Scene newScene = new Scene(recallTicketScreen);
             Stage stage = (Stage) btnRecallTickets.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.recallTicketScreenScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,11 +41,8 @@ public class backOfficeControl {
 	@FXML
 	private void handleManagerFunctionButtonAction() {
 		try {
-            AnchorPane modifyScreen = FXMLLoader.load(getClass().getResource("modifyScreen.fxml"));
-            
-            Scene newScene = new Scene(modifyScreen);
             Stage stage = (Stage) btnManagerFunction.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.modifyScreenScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,11 +52,8 @@ public class backOfficeControl {
 	@FXML
 	private void handleManageDrawersButtonAction() {
 		try {
-            AnchorPane drawerManager = FXMLLoader.load(getClass().getResource("drawerManager.fxml"));
-            
-            Scene newScene = new Scene(drawerManager);
             Stage stage = (Stage) btnManageDrawers.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.drawerManagerScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,11 +63,8 @@ public class backOfficeControl {
 	@FXML
 	private void handleTimeClockButtonAction() {
 		try {
-            AnchorPane timeClockUI = FXMLLoader.load(getClass().getResource("timeClockUI.fxml"));
-            
-            Scene newScene = new Scene(timeClockUI);
-            Stage stage = (Stage) btnTimeClock.getScene().getWindow();
-            stage.setScene(newScene);
+			Stage stage = (Stage) btnTimeClock.getScene().getWindow();           
+            stage.setScene(Main.timeClockUIScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,11 +74,8 @@ public class backOfficeControl {
 	@FXML
 	private void handleInventoryManagementButtonAction() {
 		try {
-            AnchorPane inventoryManagement = FXMLLoader.load(getClass().getResource("inventoryScreen.fxml"));
-            
-            Scene newScene = new Scene(inventoryManagement);
             Stage stage = (Stage) btnInventoryManagement.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.inventoryScreenScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,11 +85,8 @@ public class backOfficeControl {
 	@FXML
 	private void handleSchedulesButtonAction() {
 		try {
-            AnchorPane scheduleBuilder = FXMLLoader.load(getClass().getResource("scheduleBuilder.fxml"));
-            
-            Scene newScene = new Scene(scheduleBuilder);
             Stage stage = (Stage) btnSchedules.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.scheduleBuilderScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -118,11 +96,8 @@ public class backOfficeControl {
 	@FXML
 	private void handleEditPOSButtonAction() {
 		try {
-            AnchorPane editPOSScreen = FXMLLoader.load(getClass().getResource("editPOSScreen.fxml"));
-            
-            Scene newScene = new Scene(editPOSScreen);
             Stage stage = (Stage) btnEditPOS.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.editPOSScreenScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,11 +107,8 @@ public class backOfficeControl {
 	@FXML
 	private void handleEmployeeDatabaseButtonAction() {
 		try {
-            AnchorPane databaseSelectScreen = FXMLLoader.load(getClass().getResource("databaseSelectScreen.fxml"));
-            
-            Scene newScene = new Scene(databaseSelectScreen);
             Stage stage = (Stage) btnEmployeeDatabase.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.databaseSelectScreenScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -147,11 +119,8 @@ public class backOfficeControl {
 	private void handleDrawerManagementButtonAction() {
 		// NOTE: same functionality as Manage Drawers button. Redundancy
 		try {
-            AnchorPane countScreen = FXMLLoader.load(getClass().getResource("countScreen.fxml"));
-            
-            Scene newScene = new Scene(countScreen);
             Stage stage = (Stage) btnDrawerManagement.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.drawerManagerScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -168,14 +137,12 @@ public class backOfficeControl {
 		System.exit(0);
 	}
 	
+	// New way to change scenes without reloading (data is preserved)
 	@FXML
 	private void handleReturnToPOSButtonAction() {
 		try {
-            BorderPane userInterface = FXMLLoader.load(getClass().getResource("userInterface.fxml"));
-            
-            Scene newScene = new Scene(userInterface);
-            Stage stage = (Stage) btnReturnToPOS.getScene().getWindow();
-            stage.setScene(newScene);
+            Stage stage = (Stage) btnReturnToPOS.getScene().getWindow();           
+            stage.setScene(Main.userInterfaceScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

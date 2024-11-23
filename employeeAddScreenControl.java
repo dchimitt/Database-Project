@@ -1,11 +1,8 @@
 package application; 
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -35,11 +32,8 @@ public class employeeAddScreenControl {
     @FXML
     private void handleCloseButtonAction() {
     	try {
-            AnchorPane databaseSelectScreen = FXMLLoader.load(getClass().getResource("databaseSelectScreen.fxml"));
-            
-            Scene newScene = new Scene(databaseSelectScreen);
             Stage stage = (Stage) btnClose.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.databaseSelectScreenScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

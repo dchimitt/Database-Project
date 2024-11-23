@@ -1,10 +1,7 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class modifyScreenControl {
@@ -44,11 +41,8 @@ public class modifyScreenControl {
     @FXML
     private void handleCloseButtonAction() {
     	try {
-            AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
-            
-            Scene newScene = new Scene(backOfficeUI);
             Stage stage = (Stage) btnClose.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.backOfficeUIScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

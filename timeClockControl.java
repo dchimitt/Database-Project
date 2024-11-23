@@ -3,13 +3,10 @@ package application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.sql.*;
@@ -106,11 +103,8 @@ public class timeClockControl {
     @FXML
     private void handleCloseButtonAction() {
     	try {
-            AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
-            
-            Scene newScene = new Scene(backOfficeUI);
-            Stage stage = (Stage) btnClose.getScene().getWindow();
-            stage.setScene(newScene);
+    		Stage stage = (Stage) btnClose.getScene().getWindow();           
+            stage.setScene(Main.backOfficeUIScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

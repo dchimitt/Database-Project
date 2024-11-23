@@ -4,10 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane; 
 
 public class loginScreenControl {
 
@@ -25,11 +22,8 @@ public class loginScreenControl {
 	private void handleSubmitButtonAction() {
         if (usernameField.getText().equals("Devyn") && passwordField.getText().equals("4321")) {
             try {
-                AnchorPane openingScreen = FXMLLoader.load(getClass().getResource("openingScreen.fxml"));
-                
-                Scene newScene = new Scene(openingScreen);
                 Stage stage = (Stage) btnSubmit.getScene().getWindow();
-                stage.setScene(newScene);
+                stage.setScene(Main.openingScreenScene);
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();

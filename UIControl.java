@@ -1,12 +1,8 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent; // this import allows us to make generic methods for the 999999999999999999 buttons in this scene
 
@@ -75,11 +71,8 @@ public class UIControl {
 		
 		if (source == btnRecallTicket) {
 			try {
-                AnchorPane recallTicketScreen = FXMLLoader.load(getClass().getResource("recallTicketScreen.fxml"));
-                
-                Scene newScene = new Scene(recallTicketScreen);
                 Stage stage = (Stage) btnRecallTicket.getScene().getWindow();
-                stage.setScene(newScene);
+                stage.setScene(Main.recallTicketScreenScene);
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -87,11 +80,8 @@ public class UIControl {
 		}
 		else if (source == btnBackOffice) {
 			try {
-                AnchorPane backOfficeUI = FXMLLoader.load(getClass().getResource("backOfficeUI.fxml"));
-                
-                Scene newScene = new Scene(backOfficeUI);
                 Stage stage = (Stage) btnBackOffice.getScene().getWindow();
-                stage.setScene(newScene);
+                stage.setScene(Main.backOfficeUIScene);
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -99,11 +89,8 @@ public class UIControl {
 		}
 		else if (source == btnManagerFunction) {
 			try {
-                AnchorPane modifyScreen = FXMLLoader.load(getClass().getResource("modifyScreen.fxml"));
-                
-                Scene newScene = new Scene(modifyScreen);
                 Stage stage = (Stage) btnManagerFunction.getScene().getWindow();
-                stage.setScene(newScene);
+                stage.setScene(Main.modifyScreenScene);
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -111,11 +98,8 @@ public class UIControl {
 		}
 		else if (source == btnManageDrawers) {
 			try {
-                AnchorPane drawerManager = FXMLLoader.load(getClass().getResource("drawerManager.fxml"));
-                
-                Scene newScene = new Scene(drawerManager);
                 Stage stage = (Stage) btnManageDrawers.getScene().getWindow();
-                stage.setScene(newScene);
+                stage.setScene(Main.drawerManagerScene);
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -123,11 +107,8 @@ public class UIControl {
 		}
 		else if (source == btnTimeClock) {
 			try {
-                AnchorPane timeClockUI = FXMLLoader.load(getClass().getResource("timeClockUI.fxml"));
-                
-                Scene newScene = new Scene(timeClockUI);
                 Stage stage = (Stage) btnTimeClock.getScene().getWindow();
-                stage.setScene(newScene);
+                stage.setScene(Main.timeClockUIScene);
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -165,11 +146,8 @@ public class UIControl {
 		
 		if (source == btnAddNote) {
 			try {
-	            AnchorPane noteScreen = FXMLLoader.load(getClass().getResource("noteScreen.fxml"));
-	            
-	            Scene newScene = new Scene(noteScreen);
 	            Stage stage = (Stage) btnAddNote.getScene().getWindow();
-	            stage.setScene(newScene);
+	            stage.setScene(Main.noteScreenScene);
 	            stage.show();
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -186,11 +164,8 @@ public class UIControl {
 		}
 		else if (source == btnTender) {
 			try {
-	            AnchorPane tenderScreen = FXMLLoader.load(getClass().getResource("tenderScreen.fxml"));
-	            
-	            Scene newScene = new Scene(tenderScreen);
 	            Stage stage = (Stage) btnTender.getScene().getWindow();
-	            stage.setScene(newScene);
+	            stage.setScene(Main.tenderScreenScene);
 	            stage.show();
 	        } catch (Exception e) {
 	            e.printStackTrace();

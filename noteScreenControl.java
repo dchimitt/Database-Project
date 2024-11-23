@@ -1,11 +1,8 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class noteScreenControl {
@@ -25,11 +22,8 @@ public class noteScreenControl {
     @FXML
     private void handleCloseButtonAction() {
     	try {
-            BorderPane userInterface = FXMLLoader.load(getClass().getResource("userInterface.fxml"));
-            
-            Scene newScene = new Scene(userInterface);
             Stage stage = (Stage) btnClose.getScene().getWindow();
-            stage.setScene(newScene);
+            stage.setScene(Main.userInterfaceScene);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
