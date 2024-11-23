@@ -102,13 +102,25 @@ public class timeClockControl {
 
     @FXML
     private void handleCloseButtonAction() {
-    	try {
-    		Stage stage = (Stage) btnClose.getScene().getWindow();           
-            stage.setScene(Main.backOfficeUIScene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    	if (UIControl.managerEnteredPINForTimeClock == false) {
+    		try {
+    			Stage stage = (Stage) btnClose.getScene().getWindow();           
+    			stage.setScene(Main.backOfficeUIScene);
+    			stage.show();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	else {
+    		try {
+    			UIControl.managerEnteredPINForTimeClock = false;
+    			Stage stage = (Stage) btnClose.getScene().getWindow();           
+    			stage.setScene(Main.userInterfaceScene);
+    			stage.show();
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
     }
 }
 
