@@ -39,6 +39,9 @@ public class drawerManagerControl {
     private void initialize() {
         // Load list of employees into the dropdown list when the application starts
         loadEmployeeList();
+        
+        // Load drawers into the dropdown list
+        loadDrawerOptions();
     }
     
     // Queries the database and loads full list of employee names into the dropdown list
@@ -60,6 +63,12 @@ public class drawerManagerControl {
         }
 
         assignEmployeeComboBox.setItems(employeeNames);
+    }
+    
+    @FXML
+    private void loadDrawerOptions() {
+        ObservableList<String> drawerOptions = FXCollections.observableArrayList("drawer1", "drawer2");
+        assignDrawerComboBox.setItems(drawerOptions);
     }
     
     @FXML
