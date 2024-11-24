@@ -43,7 +43,7 @@ public class deleteEmployeeScreenControl {
 
                 while (rs.next()) {
                     String employeeName = rs.getString("employee_name");
-                    employeeNames.add(employeeName); 
+                    employeeNames.remove(employeeName); 
                 }
             }
         } catch (SQLException e) {
