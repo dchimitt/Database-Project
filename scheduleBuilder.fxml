@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.scheduleBuilderControl">
    <children>
-      <ComboBox layoutX="36.0" layoutY="55.0" prefHeight="26.0" prefWidth="183.0" />
+      <ComboBox fx:id="selectAnEmployeeComboBox" layoutX="36.0" layoutY="55.0" prefHeight="26.0" prefWidth="183.0" />
       <TextField layoutX="36.0" layoutY="165.0" prefHeight="26.0" prefWidth="84.0" />
       <DatePicker layoutX="40.0" layoutY="108.0" />
       <TextField layoutX="135.0" layoutY="165.0" prefHeight="26.0" prefWidth="84.0" />

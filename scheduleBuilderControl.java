@@ -1,5 +1,13 @@
 package application; 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,6 +42,33 @@ public class scheduleBuilderControl {
     // DatePickers
     @FXML private DatePicker selectDayDatePicker;
 
+    @FXML
+    private void initialize() {
+        // Load list of employees into the dropdown list when the application starts
+        loadEmployeeList();
+    }
+    
+    // Queries the database and loads full list of employee names into the dropdown list
+    private void loadEmployeeList() {
+        ObservableList<String> employeeNames = FXCollections.observableArrayList();
+
+        try (Connection connection = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD)) {
+            String query = "SELECT CONCAT(lname, ', ', fname) AS employee_name FROM Employee;"; 
+            try (Statement stmt = connection.createStatement();
+                 ResultSet rs = stmt.executeQuery(query)) {
+
+                while (rs.next()) {
+                    String employeeName = rs.getString("employee_name");
+                    employeeNames.add(employeeName); 
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        selectAnEmployeeComboBox.setItems(employeeNames);
+    }
+    
     @FXML
     private void handleAddToScheduleButtonAction() {
     	// Logic to handle action when the Add To Schedule button is clicked
