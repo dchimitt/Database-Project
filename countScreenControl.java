@@ -287,7 +287,7 @@ public class countScreenControl {
 			}
 			else {
 				Stage stage = (Stage) btnClose.getScene().getWindow();
-				stage.setScene(Main.backOfficeUIScene);
+				stage.setScene(Main.drawerManagerScene);
 				stage.show();
 			}
         } catch (Exception e) {
