@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,7 +12,7 @@
       <Button fx:id="btnPunch" layoutX="176.0" layoutY="240.0" mnemonicParsing="false" text="Punch" onAction="#handlePunchButtonAction"/>
       <Button fx:id="btnClose" layoutX="334.0" layoutY="361.0" mnemonicParsing="false" text="Close" onAction="#handleCloseButtonAction"/>
       <PasswordField fx:id="employeePinField" layoutX="126.0" layoutY="187.0" promptText="Enter PIN" />
-      <ChoiceBox fx:id="employeeListChoiceBox" layoutX="125.0" layoutY="137.0" prefWidth="150.0" />    
+      <ComboBox fx:id="employeeListComboBox" layoutX="125.0" layoutY="137.0" prefWidth="150.0" />    
       <Label layoutX="145.0" layoutY="72.0" text="Time Clock">
          <font>
             <Font size="23.0" />

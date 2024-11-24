@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
@@ -27,8 +27,8 @@ public class timeClockControl {
     // PasswordField
     @FXML private PasswordField employeePinField; 
     
-    // ChoiceBox
-    @FXML private ChoiceBox<String> employeeListChoiceBox; 
+    // ComboBox
+    @FXML private ComboBox<String> employeeListComboBox; 
     
     // Other global variables
     private boolean isClockedIn = false;
@@ -60,7 +60,7 @@ public class timeClockControl {
             e.printStackTrace();
         }
 
-        employeeListChoiceBox.setItems(employeeNames);
+        employeeListComboBox.setItems(employeeNames);
     }
 
     // To clock in and out, use local pin "1234" 
