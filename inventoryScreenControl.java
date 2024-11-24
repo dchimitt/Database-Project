@@ -44,7 +44,7 @@ public class inventoryScreenControl {
         ObservableList<String> ingredientNames = FXCollections.observableArrayList();
 
         try (Connection connection = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD)) {
-            String query = "SELECT ingredientName AS ingredient_name FROM INVENTORY;"; 
+            String query = "SELECT ingredientName AS ingredient_name FROM INVENTORY ORDER BY ingredientName;"; 
             try (Statement stmt = connection.createStatement();
                  ResultSet rs = stmt.executeQuery(query)) {
 
