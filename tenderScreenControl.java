@@ -1,5 +1,7 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -27,6 +29,18 @@ public class tenderScreenControl {
     @FXML
     private void handleTenderButtonAction() {
     	// Logic to handle action when the Tender button is clicked
+    }
+    
+    @FXML
+    private void initialize() {      
+        // Load payment options into the dropdown list
+        loadPaymentOptions();
+    }
+    
+    @FXML
+    private void loadPaymentOptions() {
+        ObservableList<String> paymentOptions = FXCollections.observableArrayList("Cash", "Credit", "Debit");
+        paymentTypeComboBox.setItems(paymentOptions);
     }
 
     @FXML
