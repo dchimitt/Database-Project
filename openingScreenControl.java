@@ -1,8 +1,10 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -28,8 +30,20 @@ public class openingScreenControl {
     @FXML private TextField startingTicketNumberField;
     @FXML private TextField startingCashCountField;
     
-    // ChoiceBox
-    @FXML private ChoiceBox<String> drawerChoiceBox;
+    // ComboBox
+    @FXML private ComboBox<String> drawerComboBox;
+    
+    @FXML
+    private void initialize() {
+        // Load drawers into the dropdown list
+        loadDrawerOptions();
+    }
+    
+    @FXML
+    private void loadDrawerOptions() {
+        ObservableList<String> drawerOptions = FXCollections.observableArrayList("drawer1", "drawer2");
+        drawerComboBox.setItems(drawerOptions);
+    }
     
     @FXML
     private void handleCountButtonAction() {
