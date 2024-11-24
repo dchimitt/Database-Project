@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.inventoryScreenControl">
    <children>
-      <ComboBox layoutX="51.0" layoutY="55.0" prefWidth="150.0" />
+      <ComboBox fx:id="selectIngredientComboBox" layoutX="51.0" layoutY="55.0" prefWidth="150.0" />
       <Label layoutX="81.0" layoutY="25.0" text="Select Ingredient" />
       <Label layoutX="91.0" layoutY="108.0" text="Edit Quantity" />
       <TextField layoutX="51.0" layoutY="142.0" />
