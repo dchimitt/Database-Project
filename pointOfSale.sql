@@ -7,6 +7,7 @@ CREATE TABLE Employee (
   lname varchar(15) not null,
   daysWorked varchar(13), -- Days an employee can work
   mgrssn char(9),
+  isActive boolean,
   primary key (ssn),
   foreign key (mgrssn) references Employee(ssn)
 );
@@ -75,36 +76,36 @@ CREATE TABLE MenuIngredientUsage (
 
 
 
-INSERT INTO Employee VALUES ("123456789", "Michael",   "Carter", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("112255438", "Kimberly",    "Gray", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("135797531", "Elizabeth", "Nelson", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("246864246", "Richard",    "James", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("763234551", "James",      "Myers", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("555555555", "Ruth",      "Thomas", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("926374289", "Sarah",     "Wilson", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("832556974", "James",     "Miller", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("449620351", "Emerson",   "Miller", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("670547720", "Taylor",   "Roberts", "M, T, W, R, F",        null);
-INSERT INTO Employee VALUES ("111222333", "Robert",      "Ross", "M, T, W, R, F", "123456789");
-INSERT INTO Employee VALUES ("197355426", "Ryan",       "Moore", "M, W, F",       "112255438");
-INSERT INTO Employee VALUES ("222222222", "William",   "Parker", "M, T, W, R, F", "135797531");
-INSERT INTO Employee VALUES ("772655819", "Maria",     "Butler", "M, W, R, F",    "246864246");
-INSERT INTO Employee VALUES ("444444444", "Lisa",      "Harris", "M, T, W, R, F", "763234551");
-INSERT INTO Employee VALUES ("629354882", "Joseph",    "Turner", "M, T, R, F",    "555555555");
-INSERT INTO Employee VALUES ("111111112", "Annabeth",  "Garcia", "M, T, W, R, F", "926374289");
-INSERT INTO Employee VALUES ("111111113", "Richard",  "Collins", "M, T, W, R, F", "832556974");
-INSERT INTO Employee VALUES ("335336337", "Lillian",    "Perry", "M, T, W, R, F", "449620351");
-INSERT INTO Employee VALUES ("599431111", "Michael",     "Gray", "M, T, R, F",    "670547720");
-INSERT INTO Employee VALUES ("499622555", "Margaret", "Roberts", "M, T, W, R, F", "123456789");
-INSERT INTO Employee VALUES ("763333318", "Brian",       "Cook", "M, T, W, R, F", "112255438");
-INSERT INTO Employee VALUES ("888899991", "Teresa",    "Howard", "M, T, W, R, F", "135797531");
-INSERT INTO Employee VALUES ("283664357", "Jessica",     "Ross", "M, T, W, R, F", "123456789");
-INSERT INTO Employee VALUES ("888888888", "Lisa",    "Thompson", "M, T, W, R, F", "112255438");
-INSERT INTO Employee VALUES ("987654321", "David", "Richardson", "M, T, W, R, F", "135797531");
-INSERT INTO Employee VALUES ("975322164", "Mary",       "Jones", "T, W, R, F",    "926374289");
-INSERT INTO Employee VALUES ("777333444", "Jordan",    "Miller", "M, T, W, R, F", "832556974");
-INSERT INTO Employee VALUES ("777999000", "Tristan",   "Graham", "M, T, W, R, F", "449620351");
-INSERT INTO Employee VALUES ("777462111", "Taylor",    "Bryant", "M, T, W, R",    "670547720");
+INSERT INTO Employee VALUES ("123456789", "Michael",   "Carter", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("112255438", "Kimberly",    "Gray", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("135797531", "Elizabeth", "Nelson", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("246864246", "Richard",    "James", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("763234551", "James",      "Myers", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("555555555", "Ruth",      "Thomas", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("926374289", "Sarah",     "Wilson", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("832556974", "James",     "Miller", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("449620351", "Emerson",   "Miller", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("670547720", "Taylor",   "Roberts", "M, T, W, R, F",        null, true);
+INSERT INTO Employee VALUES ("111222333", "Robert",      "Ross", "M, T, W, R, F", "123456789", true);
+INSERT INTO Employee VALUES ("197355426", "Ryan",       "Moore", "M, W, F",       "112255438", true);
+INSERT INTO Employee VALUES ("222222222", "William",   "Parker", "M, T, W, R, F", "135797531", true);
+INSERT INTO Employee VALUES ("772655819", "Maria",     "Butler", "M, W, R, F",    "246864246", true);
+INSERT INTO Employee VALUES ("444444444", "Lisa",      "Harris", "M, T, W, R, F", "763234551", true);
+INSERT INTO Employee VALUES ("629354882", "Joseph",    "Turner", "M, T, R, F",    "555555555", true);
+INSERT INTO Employee VALUES ("111111112", "Annabeth",  "Garcia", "M, T, W, R, F", "926374289", true);
+INSERT INTO Employee VALUES ("111111113", "Richard",  "Collins", "M, T, W, R, F", "832556974", true);
+INSERT INTO Employee VALUES ("335336337", "Lillian",    "Perry", "M, T, W, R, F", "449620351", true);
+INSERT INTO Employee VALUES ("599431111", "Michael",     "Gray", "M, T, R, F",    "670547720", true);
+INSERT INTO Employee VALUES ("499622555", "Margaret", "Roberts", "M, T, W, R, F", "123456789", true);
+INSERT INTO Employee VALUES ("763333318", "Brian",       "Cook", "M, T, W, R, F", "112255438", true);
+INSERT INTO Employee VALUES ("888899991", "Teresa",    "Howard", "M, T, W, R, F", "135797531", true);
+INSERT INTO Employee VALUES ("283664357", "Jessica",     "Ross", "M, T, W, R, F", "123456789", true);
+INSERT INTO Employee VALUES ("888888888", "Lisa",    "Thompson", "M, T, W, R, F", "112255438", true);
+INSERT INTO Employee VALUES ("987654321", "David", "Richardson", "M, T, W, R, F", "135797531", true);
+INSERT INTO Employee VALUES ("975322164", "Mary",       "Jones", "T, W, R, F",    "926374289", true);
+INSERT INTO Employee VALUES ("777333444", "Jordan",    "Miller", "M, T, W, R, F", "832556974", true);
+INSERT INTO Employee VALUES ("777999000", "Tristan",   "Graham", "M, T, W, R, F", "449620351", true);
+INSERT INTO Employee VALUES ("777462111", "Taylor",    "Bryant", "M, T, W, R",    "670547720", true);
 
 INSERT INTO Schedule VALUES (40, "111112345", "987654321", "M, T, W, R, F", "08:00", "08:00", "08:00", "08:00", "08:00");
 INSERT INTO Schedule VALUES (40, "111112346", "888888888", "M, T, W, R, F", "08:00", "08:00", "08:00", "08:00", "08:00");
@@ -205,24 +206,6 @@ INSERT INTO MenuIngredientUsage VALUES ("Spaghetti",                           "
 INSERT INTO MenuIngredientUsage VALUES ("Spaghetti",                                  "Pasta", 4);
 INSERT INTO MenuIngredientUsage VALUES ("Chicken Tenders",               "Chicken Tenderloin", 3);
 INSERT INTO MenuIngredientUsage VALUES ("Chicken Tenders",                           "Batter", 3);
-
-
-
--- remove an employee (generic)
-	-- might have to do something specific for managers since employees have one and you'd be deleting it
-		/* do we have an idea of how we want to go about replacing a manager if a manager is deleted? the employees under their 
-        supervision would need a new manager or else they effectively act as their own manager in the database */
--- add an employee (generic)
-	-- same concept here but reverse: do we have an idea of how we want to go about assigning a manager
-
-
-
-/* MenuItem Add/Remove */
-	-- INSERT INTO MenuItem VALUES ([varchar of food name], [int of price], [varchar of allergy components (egg, dairy, etc.), separated by commas and spaces], ["Yes"/"No" on whether vegetarian],  ["Yes"/"No" on whether gluten free]);
-		-- ex: INSERT INTO MenuItem VALUES ("Salad", 6, "Tomato", "Yes", "No");
-    -- DELETE FROM MenuItem WHERE itemName = [food name that it was inserted with];
-		-- ex: DELETE FROM MenuItem WHERE itemName = "Salad";
-			-- NOTE: MenuItem is referenced in many places. By deleting it, you also have to keep in mind that Ticket, CustomerOrder, and MenuIngredientUsage are all affected (all currently set to delete/update depending on what action was taken)
 
 /* Ingredients Add/Remove */
 	-- INSERT INTO Inventory VALUES ([varchar of ingredient name], quantity, [varchar of menu items ingredient is in, separated by a commas and spaces], [ssn of manager who is in charge of ingredient stock]);
