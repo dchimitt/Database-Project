@@ -37,13 +37,18 @@ public class deleteEmployeeScreenControl {
         ObservableList<String> employeeNames = FXCollections.observableArrayList();
 
         try (Connection connection = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD)) {
-            String query = "SELECT CONCAT(lname, ', ', fname) AS employee_name FROM Employee ORDER BY lname;"; 
+        	String query = "SELECT CONCAT(lname, ', ', fname) AS employee_name, isActive FROM Employee WHERE isActive = TRUE ORDER BY lname;"; 
             try (Statement stmt = connection.createStatement();
                  ResultSet rs = stmt.executeQuery(query)) {
 
                 while (rs.next()) {
                     String employeeName = rs.getString("employee_name");
-                    employeeNames.add(employeeName); 
+                    boolean isActive = rs.getBoolean("isActive");
+                    
+                    // Do not load employees into the list if their isActive attribute is currently false
+                    if (isActive) {
+                    	employeeNames.add(employeeName); 
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -55,7 +60,22 @@ public class deleteEmployeeScreenControl {
     
     @FXML
     private void handleDeleteEmployeeButtonAction() {
-    	// Logic to handle action when the Delete Employee button is clicked
+    	// Put first and last name into an array of Strings
+        String[] employeeName = selectAnEmployeeComboBox.getValue().split(", ");
+        String lname = employeeName[0].trim();
+        String fname = employeeName[1].trim();
+
+        try (Connection connection = DriverManager.getConnection(Main.URL, Main.USER, Main.PASSWORD)) {
+            try (Statement stmt = connection.createStatement()) {
+                String query = "UPDATE Employee SET isActive = FALSE WHERE lname = '" + lname + "' AND fname = '" + fname + "';";
+                
+                // Update the employee tuple with isActive = false, then reload the list of employees
+                stmt.executeUpdate(query);
+                loadEmployeeList();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
