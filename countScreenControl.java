@@ -5,87 +5,50 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class countScreenControl {
-	
-	//FXML Object Linking
-	
+
 	//TextFields
-	@FXML
-	private TextField penniesField;
-	@FXML
-	private TextField nickelsField;
-	@FXML
-	private TextField dimesField;
-	@FXML
-	private TextField quartersField;
-	@FXML
-	private TextField rPenniesField;
-	@FXML
-	private TextField rNickelsField;
-	@FXML
-	private TextField rDimesField;
-	@FXML
-	private TextField rQuartersField;
-	@FXML
-	private TextField dollarField;
-	@FXML
-	private TextField twoDollarField;
-	@FXML
-	private TextField fiveDollarField;
-	@FXML
-	private TextField tenDollarField;
-	@FXML
-	private TextField twentyDollarField;
-	@FXML
-	private TextField fiftyDollarField;
-	@FXML
-	private TextField hundredDollarField;
+	@FXML private TextField penniesField;
+	@FXML private TextField nickelsField;
+	@FXML private TextField dimesField;
+	@FXML private TextField quartersField;
+	@FXML private TextField rPenniesField;
+	@FXML private TextField rNickelsField;
+	@FXML private TextField rDimesField;
+	@FXML private TextField rQuartersField;
+	@FXML private TextField dollarField;
+	@FXML private TextField twoDollarField;
+	@FXML private TextField fiveDollarField;
+	@FXML private TextField tenDollarField;
+	@FXML private TextField twentyDollarField;
+	@FXML private TextField fiftyDollarField;
+	@FXML private TextField hundredDollarField;
 	
-	//Buttons
-	@FXML
-	private Button btnFinish;
-	@FXML
-	private Button btnExit;
+	// Buttons
+	@FXML private Button btnFinish;
+	@FXML private Button btnClose;
 	
-	//Labels
-	@FXML
-	private Label lblPennies;
-	@FXML
-	private Label lblNickels;
-	@FXML
-	private Label lblDimes;
-	@FXML
-	private Label lblQuarters;
-	@FXML
-	private Label lblRPennies;
-	@FXML
-	private Label lblRNickels;
-	@FXML
-	private Label lblRDimes;
-	@FXML
-	private Label lblRQuarters;
-	@FXML
-	private Label lblDollar;
-	@FXML
-	private Label lblTwoDollar;
-	@FXML
-	private Label lblFiveDollar;
-	@FXML
-	private Label lblTenDollar;
-	@FXML
-	private Label lblTwentyDollar;
-	@FXML
-	private Label lblFiftyDollar;
-	@FXML
-	private Label lblHundredDollar;
-	@FXML
-	private Label lblDrawer;
-	@FXML
-	private Label lblCount;
-	@FXML
-	private Label lblDifference;
-	
+	// Labels
+	@FXML private Label lblPennies;
+	@FXML private Label lblNickels;
+	@FXML private Label lblDimes;
+	@FXML private Label lblQuarters;
+	@FXML private Label lblRPennies;
+	@FXML private Label lblRNickels;
+	@FXML private Label lblRDimes;
+	@FXML private Label lblRQuarters;
+	@FXML private Label lblDollar;
+	@FXML private Label lblTwoDollar;
+	@FXML private Label lblFiveDollar;
+	@FXML private Label lblTenDollar;
+	@FXML private Label lblTwentyDollar;
+	@FXML private Label lblFiftyDollar;
+	@FXML private Label lblHundredDollar;
+	@FXML private Label lblDrawer;
+	@FXML private Label lblCount;
+	@FXML private Label lblDifference;
 	
 	//Logic variable definitions
 	private double currentTotal = 0.00;
@@ -315,12 +278,13 @@ public class countScreenControl {
 		}
 	}
 	@FXML
-	private void exit() {
-		System.exit(0);
+	private void handleCloseButtonAction() {
+		Stage stage = (Stage) btnClose.getScene().getWindow();
+		stage.close();
 	}
 	@FXML
-	private void finish() {
-		System.exit(0);
+	private void handleFinishButtonAction() {
+		// Finalizes counting?
 	}
 	
 }

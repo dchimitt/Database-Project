@@ -5,10 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.noteScreenControl">
    <children>
-      <Button layoutX="166.0" layoutY="151.0" mnemonicParsing="false" text="Add Note" />
-      <Button layoutX="321.0" layoutY="151.0" mnemonicParsing="false" text="Close" />
+      <Button fx:id="btnAddNote" layoutX="166.0" layoutY="151.0" mnemonicParsing="false" text="Add Note" onAction="#handleAddNoteButtonAction"/>
+      <Button fx:id="btnClose" layoutX="321.0" layoutY="151.0" mnemonicParsing="false" text="Close" onAction="#handleCloseButtonAction"/>
       <TextArea layoutX="16.0" layoutY="15.0" prefHeight="118.0" prefWidth="367.0" />
    </children>
 </AnchorPane>

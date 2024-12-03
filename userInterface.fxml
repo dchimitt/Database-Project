@@ -13,49 +13,60 @@
          <children>
             <ToolBar layoutY="-6.0" prefHeight="51.0" prefWidth="1366.0">
               <items>
-                <Button fx:id="btnRecall" mnemonicParsing="false" text="Recall Tickets" />
-                  <Button fx:id="btnOffice" mnemonicParsing="false" text="Back Office" />
-                  <Button fx:id="btnMgrFn" mnemonicParsing="false" text="Manager Function" />
-                  <Button fx:id="btnDrawers" mnemonicParsing="false" text="Manage Drawers" />
-                  <Button fx:id="btnTimeClock" mnemonicParsing="false" text="Time Clock" />
+             	  <!-- Toolbar Buttons -->
+                  <Button fx:id="btnRecallTicket" mnemonicParsing="false" onAction="#handleToolbarButtonAction" text="Recall Ticket" />
+                  <Button fx:id="btnBackOffice" mnemonicParsing="false" onAction="#handleToolbarButtonAction" text="Back Office" />
+                  <Button fx:id="btnManageDrawers" mnemonicParsing="false" onAction="#handleToolbarButtonAction" text="Manage Drawers" />
+                  <Button fx:id="btnTimeClock" mnemonicParsing="false" onAction="#handleToolbarButtonAction" text="Time Clock" />
               </items>
             </ToolBar>
-            <Button fx:id="btnEntrees" layoutX="14.0" layoutY="108.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Entrees" />
-            <Button fx:id="btnSides" layoutX="14.0" layoutY="202.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Sides" />
-            <Button fx:id="btnDrinks" layoutX="14.0" layoutY="300.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Drinks" />
-            <Button fx:id="btnDesserts" layoutX="14.0" layoutY="399.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Desserts" />
-            <Button fx:id="btnAllergy" layoutX="14.0" layoutY="496.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Allergy Friendly" />
-            <Button fx:id="btnVegetarian" layoutX="14.0" layoutY="596.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Vegetarian" />
+            <!-- Side Buttons -->
+            <Button fx:id="btnEntrees" layoutX="14.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleSideButtonAction" prefHeight="70.0" prefWidth="173.0" text="Entrees" />
+            <Button fx:id="btnSides" layoutX="14.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleSideButtonAction" prefHeight="70.0" prefWidth="173.0" text="Sides" />
+            <Button fx:id="btnDrinks" layoutX="14.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleSideButtonAction" prefHeight="70.0" prefWidth="173.0" text="Drinks" />
+            <Button fx:id="btnDesserts" layoutX="14.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleSideButtonAction" prefHeight="70.0" prefWidth="173.0" text="Desserts" />
+            <Button fx:id="btnAllergyFriendly" layoutX="14.0" layoutY="496.0" mnemonicParsing="false" onAction="#handleSideButtonAction" prefHeight="70.0" prefWidth="173.0" text="Allergy Friendly" />
+            <Button fx:id="btnVegetarian" layoutX="14.0" layoutY="596.0" mnemonicParsing="false" onAction="#handleSideButtonAction" prefHeight="70.0" prefWidth="173.0" text="Vegetarian" />
             <Pane layoutX="212.0" layoutY="107.0" prefHeight="555.0" prefWidth="889.0">
                <children>
-                  <Button fx:id="btnItem1" layoutX="45.0" layoutY="55.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem5" layoutX="45.0" layoutY="138.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem9" layoutX="45.0" layoutY="219.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem13" layoutX="45.0" layoutY="303.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem17" layoutX="45.0" layoutY="394.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem2" layoutX="230.0" layoutY="55.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem6" layoutX="230.0" layoutY="138.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem10" layoutX="230.0" layoutY="219.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem14" layoutX="230.0" layoutY="303.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem18" layoutX="230.0" layoutY="394.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem3" layoutX="412.0" layoutY="55.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem7" layoutX="412.0" layoutY="138.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem11" layoutX="412.0" layoutY="219.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem15" layoutX="412.0" layoutY="303.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem19" layoutX="412.0" layoutY="394.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem4" layoutX="594.0" layoutY="55.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem8" layoutX="594.0" layoutY="138.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem12" layoutX="594.0" layoutY="219.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem16" layoutX="594.0" layoutY="303.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
-                  <Button fx:id="btnItem20" layoutX="594.0" layoutY="394.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="168.0" text="Button" />
+               	  <!-- Row 0 buttons -->
+                  <Button fx:id="btn0_0" layoutX="45.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button0_0" />
+                  <Button fx:id="btn0_1" layoutX="230.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button0_1" />
+                  <Button fx:id="btn0_2" layoutX="412.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button0_2" />
+                  <Button fx:id="btn0_3" layoutX="594.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button0_3" />
+                  
+                  <!-- Row 1 buttons -->
+                  <Button fx:id="btn1_0" layoutX="45.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button1_0" />
+                  <Button fx:id="btn1_1" layoutX="230.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button1_1" />
+                  <Button fx:id="btn1_2" layoutX="412.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button1_2" />
+                  <Button fx:id="btn1_3" layoutX="594.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button1_3" />                 
+                  
+                  <!-- Row 2 buttons -->
+                  <Button fx:id="btn2_0" layoutX="45.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button2_0" />
+                  <Button fx:id="btn2_1" layoutX="230.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button2_1" />
+                  <Button fx:id="btn2_2" layoutX="412.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button2_2" />
+                  <Button fx:id="btn2_3" layoutX="594.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button2_3" />
+                  
+                  <!-- Row 3 buttons -->
+                  <Button fx:id="btn3_0" layoutX="45.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button3_0" />
+                  <Button fx:id="btn3_1" layoutX="230.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button3_1" />
+                  <Button fx:id="btn3_2" layoutX="412.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button3_2" />
+                  <Button fx:id="btn3_3" layoutX="594.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button3_3" />
+                  
+                  <!-- Row 4 buttons -->
+                  <Button fx:id="btn4_0" layoutX="45.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button4_0" />
+                  <Button fx:id="btn4_1" layoutX="230.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button4_1" />
+                  <Button fx:id="btn4_2" layoutX="412.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button4_2" />
+                  <Button fx:id="btn4_3" layoutX="594.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleGenericButtonAction" prefHeight="67.0" prefWidth="168.0" text="Button4_3" />
                </children>
             </Pane>
+            <!-- Bottom Row Buttons -->
             <TextArea fx:id="ticketText" layoutX="1110.0" layoutY="109.0" prefHeight="552.0" prefWidth="236.0" text="Ticket #" />
-            <Button fx:id="btnTender" layoutX="1141.0" layoutY="676.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Tender" />
-            <Button fx:id="btnMeal" layoutX="556.0" layoutY="676.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Make Meal" />
-            <Button fx:id="btnModify" layoutX="753.0" layoutY="676.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Modify" />
-            <Button fx:id="btnAlert" layoutX="944.0" layoutY="676.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Allergy Allert" />
-            <Button fx:id="btnNote" layoutX="359.0" layoutY="676.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="Add Note" />
+            <Button fx:id="btnTender" layoutX="1141.0" layoutY="676.0" mnemonicParsing="false" onAction="#handleBottomRowButtonAction" prefHeight="70.0" prefWidth="173.0" text="Tender" />
+            <Button fx:id="btnMakeMeal" layoutX="556.0" layoutY="676.0" mnemonicParsing="false" onAction="#handleBottomRowButtonAction" prefHeight="70.0" prefWidth="173.0" text="Make Meal" />
+            <Button fx:id="btnModify" layoutX="753.0" layoutY="676.0" mnemonicParsing="false" onAction="#handleBottomRowButtonAction" prefHeight="70.0" prefWidth="173.0" text="Modify" />
+            <Button fx:id="btnAllergyAlert" layoutX="944.0" layoutY="676.0" mnemonicParsing="false" onAction="#handleBottomRowButtonAction" prefHeight="70.0" prefWidth="173.0" text="Allergy Allert" />
+            <Button fx:id="btnAddNote" layoutX="359.0" layoutY="676.0" mnemonicParsing="false" onAction="#handleBottomRowButtonAction" prefHeight="70.0" prefWidth="173.0" text="Add Note" />
          </children>
       </AnchorPane>
    </left>

@@ -10,25 +10,24 @@
    <children>
       <ToolBar prefHeight="46.0" prefWidth="1372.0">
         <items>
-          <Button fx:id="btnRecall" mnemonicParsing="false" text="Recall Tickets" />
-            <Button fx:id="btnOffice" mnemonicParsing="false" text="Back Office" />
-            <Button fx:id="btnMgrFn" mnemonicParsing="false" text="Manager Function" />
-            <Button fx:id="btnDrawers" mnemonicParsing="false" text="Manage Drawers" />
-            <Button fx:id="btnTimeClock" mnemonicParsing="false" text="Time Clock" />
+          <Button fx:id="btnRecallTickets" mnemonicParsing="false" onAction="#handleRecallTicketsButtonAction" text="Recall Tickets" />
+            <Button fx:id="btnBackOffice" mnemonicParsing="false" onAction="#handleBackOfficeButtonAction" text="Back Office" />
+            <Button fx:id="btnManageDrawers" mnemonicParsing="false" onAction="#handleManageDrawersButtonAction" text="Manage Drawers" />
+            <Button fx:id="btnTimeClock" mnemonicParsing="false" onAction="#handleTimeClockButtonAction" text="Time Clock" />
         </items>
       </ToolBar>
-      <Button fx:id="btnInventory" layoutX="127.0" layoutY="143.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="178.0" text="Inventory Management" />
-      <Button fx:id="btnSchedules" layoutX="127.0" layoutY="314.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="178.0" text="Schedules" />
-      <Button fx:id="btnEdit" layoutX="127.0" layoutY="492.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="178.0" text="Edit POS" />
-      <Button fx:id="btnEmployees" layoutX="476.0" layoutY="143.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="178.0" text="Employee Database" />
-      <Button fx:id="btnReturn" layoutX="1233.0" layoutY="714.0" mnemonicParsing="false" text="Return to POS" />
-      <Button fx:id="btnDrawerMg" layoutX="476.0" layoutY="314.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="178.0" text="Drawer Management" />
-      <Button fx:id="btnSales" layoutX="476.0" layoutY="492.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="178.0" text="Sales Report" />
+      <Button fx:id="btnInventoryManagement" layoutX="127.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleInventoryManagementButtonAction" prefHeight="88.0" prefWidth="178.0" text="Inventory Management" />
+      <Button fx:id="btnSchedules" layoutX="127.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleSchedulesButtonAction" prefHeight="88.0" prefWidth="178.0" text="Schedules" />
+      <Button fx:id="btnEditPOS" layoutX="127.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleEditPOSButtonAction" prefHeight="88.0" prefWidth="178.0" text="Edit POS" />
+      <Button fx:id="btnEmployeeDatabase" layoutX="476.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleEmployeeDatabaseButtonAction" prefHeight="88.0" prefWidth="178.0" text="Employee Database" />
+      <Button fx:id="btnReturnToPOS" layoutX="1233.0" layoutY="714.0" mnemonicParsing="false" onAction="#handleReturnToPOSButtonAction" text="Return to POS" />
+      <Button fx:id="btnDrawerManagement" layoutX="476.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleDrawerManagementButtonAction" prefHeight="88.0" prefWidth="178.0" text="Drawer Management" />
+      <Button fx:id="btnSalesReport" layoutX="476.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleSalesReportButtonAction" prefHeight="88.0" prefWidth="178.0" text="Sales Report" />
       <Label layoutX="813.0" layoutY="319.0" text="POS Back Office V1.0" textFill="#70b3ff">
          <font>
             <Font size="53.0" />
          </font>
       </Label>
-      <Button fx:id="btnExit" layoutX="1139.0" layoutY="714.0" mnemonicParsing="false" text="Exit POS" />
+      <Button fx:id="btnExitPOS" layoutX="36.0" layoutY="714.0" mnemonicParsing="false" onAction="#handleExitPOSButtonAction" text="Exit POS" />
    </children>
 </AnchorPane>

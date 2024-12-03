@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.tenderScreenControl">
    <children>
-      <Button layoutX="273.0" layoutY="341.0" mnemonicParsing="false" text="Tender" />
-      <Button layoutX="513.0" layoutY="341.0" mnemonicParsing="false" text="Close" />
-      <ComboBox layoutX="225.0" layoutY="99.0" prefWidth="150.0" />
+      <Button fx:id="btnTender" layoutX="273.0" layoutY="341.0" mnemonicParsing="false" text="Tender" onAction="#handleTenderButtonAction"/>
+      <Button fx:id="btnClose" layoutX="513.0" layoutY="341.0" mnemonicParsing="false" text="Close" onAction="#handleCloseButtonAction"/>
+      <ComboBox fx:id="paymentTypeComboBox" layoutX="225.0" layoutY="99.0" prefWidth="150.0" />
       <TextField layoutX="225.0" layoutY="167.0" />
       <Label layoutX="245.0" layoutY="66.0" text="Select Payment Type" />
       <Label layoutX="253.0" layoutY="140.0" text="Payment Amount" />
