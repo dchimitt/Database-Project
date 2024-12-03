@@ -8,6 +8,7 @@ CREATE TABLE Employee (
   bday varchar(10) not null,
   mgrssn char(9),
   isActive boolean,
+  position varchar(9),
   primary key (ssn),
   foreign key (mgrssn) references Employee(ssn)
 );
@@ -39,22 +40,14 @@ CREATE TABLE MenuItem (
   primary key (itemName)
 );
 
-CREATE TABLE CustomerOrder (
-  ssn char(9),
-  itemName varchar(40),
-  orderNum  integer,
-  orderQuantity integer,
-  primary key (orderNum),
-  foreign key (ssn) references Employee(ssn),
-  foreign key (itemName) references MenuItem(itemName) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
 CREATE TABLE Ticket (
-  ticketNum integer,
+  itemNumber integer,
+  ticketNumber integer,
   ticketDate date,
-  orderNum integer,
-  primary key (ticketNum, orderNum),
-  foreign key (orderNum) references CustomerOrder (orderNum) ON DELETE CASCADE ON UPDATE CASCADE
+  item varChar(40),
+  itemPrice integer,
+  primary key (itemNumber),
+  foreign key (item) references MenuItem (itemName) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Inventory (
@@ -76,37 +69,36 @@ CREATE TABLE MenuIngredientUsage (
 );
 
 
-
-INSERT INTO Employee VALUES ("123456789", "Michael",   "Carter", "2002-10-11",        null, true);
-INSERT INTO Employee VALUES ("112255438", "Kimberly",    "Gray", "1997-08-21",        null, true);
-INSERT INTO Employee VALUES ("135797531", "Elizabeth", "Nelson", "2000-03-01",        null, true);
-INSERT INTO Employee VALUES ("246864246", "Richard",    "James", "2001-03-30",        null, true);
-INSERT INTO Employee VALUES ("763234551", "James",      "Myers", "1989-02-28",        null, true);
-INSERT INTO Employee VALUES ("555555555", "Ruth",      "Thomas", "1999-12-02",        null, true);
-INSERT INTO Employee VALUES ("926374289", "Sarah",     "Wilson", "2004-07-15",        null, true);
-INSERT INTO Employee VALUES ("832556974", "James",     "Miller", "1980-09-27",        null, true);
-INSERT INTO Employee VALUES ("449620351", "Emerson",   "Miller", "2002-05-09",        null, true);
-INSERT INTO Employee VALUES ("670547720", "Taylor",   "Roberts", "2000-01-01",        null, true);
-INSERT INTO Employee VALUES ("111222333", "Robert",      "Ross", "1994-04-20", "123456789", true);
-INSERT INTO Employee VALUES ("197355426", "Ryan",       "Moore", "2005-10-10", "112255438", true);
-INSERT INTO Employee VALUES ("222222222", "William",   "Parker", "1996-11-28", "135797531", true);
-INSERT INTO Employee VALUES ("772655819", "Maria",     "Butler", "2001-02-27", "246864246", true);
-INSERT INTO Employee VALUES ("444444444", "Lisa",      "Harris", "2000-03-01", "763234551", true);
-INSERT INTO Employee VALUES ("629354882", "Joseph",    "Turner", "2003-11-07", "555555555", true);
-INSERT INTO Employee VALUES ("111111112", "Annabeth",  "Garcia", "1985-10-06", "926374289", true);
-INSERT INTO Employee VALUES ("111111113", "Richard",  "Collins", "2001-04-01", "832556974", true);
-INSERT INTO Employee VALUES ("335336337", "Lillian",    "Perry", "2002-11-12", "449620351", true);
-INSERT INTO Employee VALUES ("599431111", "Michael",     "Gray", "2005-03-14", "670547720", true);
-INSERT INTO Employee VALUES ("499622555", "Margaret", "Roberts", "1994-06-20", "123456789", true);
-INSERT INTO Employee VALUES ("763333318", "Brian",       "Cook", "2004-09-19", "112255438", true);
-INSERT INTO Employee VALUES ("888899991", "Teresa",    "Howard", "1989-10-16", "135797531", true);
-INSERT INTO Employee VALUES ("283664357", "Jessica",     "Ross", "1999-12-24", "123456789", true);
-INSERT INTO Employee VALUES ("888888888", "Lisa",    "Thompson", "1992-05-05", "112255438", true);
-INSERT INTO Employee VALUES ("987654321", "David", "Richardson", "1991-11-11", "135797531", true);
-INSERT INTO Employee VALUES ("975322164", "Mary",       "Jones", "1990-09-22", "926374289", true);
-INSERT INTO Employee VALUES ("777333444", "Jordan",    "Miller", "2002-10-06", "832556974", true);
-INSERT INTO Employee VALUES ("777999000", "Tristan",   "Graham", "1993-02-09", "449620351", true);
-INSERT INTO Employee VALUES ("777462111", "Taylor",    "Bryant", "2000-04-25", "670547720", true);
+INSERT INTO Employee VALUES ("123456789", "Michael",   "Carter", "2002-10-11",        null, true, "Manager");
+INSERT INTO Employee VALUES ("112255438", "Kimberly",    "Gray", "1997-08-21",        null, true, "Manager");
+INSERT INTO Employee VALUES ("135797531", "Elizabeth", "Nelson", "2000-03-01",        null, true, "Manager");
+INSERT INTO Employee VALUES ("246864246", "Richard",    "James", "2001-03-30",        null, true, "Manager");
+INSERT INTO Employee VALUES ("763234551", "James",      "Myers", "1989-02-28",        null, true, "Manager");
+INSERT INTO Employee VALUES ("555555555", "Ruth",      "Thomas", "1999-12-02",        null, true, "Manager");
+INSERT INTO Employee VALUES ("926374289", "Sarah",     "Wilson", "2004-07-15",        null, true, "Manager");
+INSERT INTO Employee VALUES ("832556974", "James",     "Miller", "1980-09-27",        null, true, "Manager");
+INSERT INTO Employee VALUES ("449620351", "Emerson",   "Miller", "2002-05-09",        null, true, "Manager");
+INSERT INTO Employee VALUES ("670547720", "Taylor",   "Roberts", "2000-01-01",        null, true, "Manager");
+INSERT INTO Employee VALUES ("111222333", "Robert",      "Ross", "1994-04-20", "123456789", true, "Employee");
+INSERT INTO Employee VALUES ("197355426", "Ryan",       "Moore", "2005-10-10", "112255438", true, "Employee");
+INSERT INTO Employee VALUES ("222222222", "William",   "Parker", "1996-11-28", "135797531", true, "Employee");
+INSERT INTO Employee VALUES ("772655819", "Maria",     "Butler", "2001-02-27", "246864246", true, "Employee");
+INSERT INTO Employee VALUES ("444444444", "Lisa",      "Harris", "2000-03-01", "763234551", true, "Employee");
+INSERT INTO Employee VALUES ("629354882", "Joseph",    "Turner", "2003-11-07", "555555555", true, "Employee");
+INSERT INTO Employee VALUES ("111111112", "Annabeth",  "Garcia", "1985-10-06", "926374289", true, "Employee");
+INSERT INTO Employee VALUES ("111111113", "Richard",  "Collins", "2001-04-01", "832556974", true, "Employee");
+INSERT INTO Employee VALUES ("335336337", "Lillian",    "Perry", "2002-11-12", "449620351", true, "Employee");
+INSERT INTO Employee VALUES ("599431111", "Michael",     "Gray", "2005-03-14", "670547720", true, "Employee");
+INSERT INTO Employee VALUES ("499622555", "Margaret", "Roberts", "1994-06-20", "123456789", true, "Employee");
+INSERT INTO Employee VALUES ("763333318", "Brian",       "Cook", "2004-09-19", "112255438", true, "Employee");
+INSERT INTO Employee VALUES ("888899991", "Teresa",    "Howard", "1989-10-16", "135797531", true, "Employee");
+INSERT INTO Employee VALUES ("283664357", "Jessica",     "Ross", "1999-12-24", "123456789", true, "Employee");
+INSERT INTO Employee VALUES ("888888888", "Lisa",    "Thompson", "1992-05-05", "112255438", true, "Employee");
+INSERT INTO Employee VALUES ("987654321", "David", "Richardson", "1991-11-11", "135797531", true, "Employee");
+INSERT INTO Employee VALUES ("975322164", "Mary",       "Jones", "1990-09-22", "926374289", true, "Employee");
+INSERT INTO Employee VALUES ("777333444", "Jordan",    "Miller", "2002-10-06", "832556974", true, "Employee");
+INSERT INTO Employee VALUES ("777999000", "Tristan",   "Graham", "1993-02-09", "449620351", true, "Employee");
+INSERT INTO Employee VALUES ("777462111", "Taylor",    "Bryant", "2000-04-25", "670547720", true, "Employee");
 
 INSERT INTO Schedule VALUES (40, "111112345", "987654321", "M, T, W, R, F", "08:00", "08:00", "08:00", "08:00", "08:00");
 INSERT INTO Schedule VALUES (40, "111112346", "888888888", "M, T, W, R, F", "08:00", "08:00", "08:00", "08:00", "08:00");
@@ -145,27 +137,18 @@ INSERT INTO MenuItem VALUES ("Brownie",           		  3, "Wheat, Egg, Dairy, Glu
 INSERT INTO MenuItem VALUES ("Chocolate Chip Cookie",     3, "Wheat, Egg, Dairy, Gluten",        "Yes",  "No",    "Dessert");
 INSERT INTO MenuItem VALUES ("Cheesecake",          	  5, "Wheat, Dairy, Gluten",             "Yes",  "No",    "Dessert");
 
-INSERT INTO CustomerOrder VALUES ("111222333", "Salad",                    101, 2);
-INSERT INTO CustomerOrder VALUES ("111222333", "Hamburger",                102, 1);
-INSERT INTO CustomerOrder VALUES ("197355426", "Pepperoni Pizza",          103, 3);
-INSERT INTO CustomerOrder VALUES ("222222222", "Chicken Tenders",          104, 5);
-INSERT INTO CustomerOrder VALUES ("772655819", "Gluten Free Cheese Pizza", 105, 1);
-INSERT INTO CustomerOrder VALUES ("444444444", "Spaghetti",                106, 2);
-INSERT INTO CustomerOrder VALUES ("629354882", "Hamburger",                107, 3);
-INSERT INTO CustomerOrder VALUES ("111111112", "Spaghetti",                108, 1);
-INSERT INTO CustomerOrder VALUES ("111111113", "Pepperoni Pizza",          109, 4);
-INSERT INTO CustomerOrder VALUES ("111111113", "Pepperoni Pizza",          110, 1);
-
-INSERT INTO Ticket VALUES ( 1, "2024-11-1", 101);
-INSERT INTO Ticket VALUES ( 2, "2024-11-1", 102);
-INSERT INTO Ticket VALUES ( 3, "2024-11-1", 103);
-INSERT INTO Ticket VALUES ( 4, "2024-11-1", 104);
-INSERT INTO Ticket VALUES ( 5, "2024-11-2", 105);
-INSERT INTO Ticket VALUES ( 6, "2024-11-2", 106);
-INSERT INTO Ticket VALUES ( 7, "2024-11-3", 107);
-INSERT INTO Ticket VALUES ( 8, "2024-11-3", 108);
-INSERT INTO Ticket VALUES ( 9, "2024-11-3", 109);
-INSERT INTO Ticket VALUES (10, "2024-11-3", 110);
+INSERT INTO Ticket VALUES ( 1, 1, "2024-11-1", "Hamburger", 11);
+INSERT INTO Ticket VALUES ( 2, 1, "2024-11-1", "Fries", 3);
+INSERT INTO Ticket VALUES ( 3, 1, "2024-11-1", "Fountain Drink", 2);
+INSERT INTO Ticket VALUES ( 4, 1, "2024-11-1", "Spaghetti", 14);
+INSERT INTO Ticket VALUES ( 5, 1, "2024-11-1", "Bottled Water", 2);
+INSERT INTO Ticket VALUES ( 6, 2, "2024-11-1", "Cheese Pizza", 8);
+INSERT INTO Ticket VALUES ( 7, 2, "2024-11-1", "Chocolate Chip Cookie", 3);
+INSERT INTO Ticket VALUES ( 8, 3, "2024-11-2", "Bean Burrito", 7);
+INSERT INTO Ticket VALUES ( 9, 3, "2024-11-2", "Steak", 16);
+INSERT INTO Ticket VALUES ( 10, 3, "2024-11-2", "Fries", 3);
+INSERT INTO Ticket VALUES ( 11, 3, "2024-11-2", "Shake", 5);
+INSERT INTO Ticket VALUES ( 12, 3, "2024-11-2", "Chips", 2);
 
 INSERT INTO Inventory VALUES ("Lettuce",                 200, "Salad, Hamburger",                                                                  "555555555");
 INSERT INTO Inventory VALUES ("Cucumber",                100, "Salad",                                                                             "555555555");
