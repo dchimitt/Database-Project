@@ -241,7 +241,7 @@ INSERT INTO MenuIngredientUsage VALUES ("Chicken Noodle Soup",                "C
 INSERT INTO MenuIngredientUsage VALUES ("Chicken Noodle Soup",                        "Pasta", 2);
 INSERT INTO MenuIngredientUsage VALUES ("Chicken Noodle Soup",                       "Carrot", 1);
 INSERT INTO MenuIngredientUsage VALUES ("Chicken Noodle Soup",                        "Onion", 1);
-INSERT INTO MenuIngredientUsage VALUES ("Fountian Drink",                              "Cups", 1);
+INSERT INTO MenuIngredientUsage VALUES ("Fountain Drink",                              "Cups", 1);
 INSERT INTO MenuIngredientUsage VALUES ("Fountain Drink",                              "Lids", 1);
 INSERT INTO MenuIngredientUsage VALUES ("Fountain Drink",                            "Straws", 1);
 INSERT INTO MenuIngredientUsage VALUES ("Water Cup",                                   "Cups", 1);
